@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula 14 – Módulos e Bibliotecas em Python</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #fff;
+      padding: 28px;
+      text-align: center;
+    }
+    main {
+      max-width: 920px;
+      margin: auto;
+      background: #ffffff;
+      padding: 36px;
+    }
+    h1, h2, h3 { color: #1e293b; }
+    h2 { margin-top: 48px; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; }
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 18px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    .conceito, .exemplo, .teste, .desafio, .resolucao {
+      padding: 18px;
+      margin: 28px 0;
+      border-left: 5px solid;
+    }
+    .conceito { background: #eef2ff; border-color: #6366f1; }
+    .exemplo { background: #f8fafc; border-color: #0ea5e9; }
+    .teste { background: #ecfeff; border-color: #06b6d4; }
+    .desafio { background: #fff7ed; border-color: #f97316; }
+    .resolucao { background: #f0fdf4; border-color: #22c55e; }
+    footer { text-align: center; margin: 60px 0 20px; }
+    a { color: #2563eb; font-weight: bold; text-decoration: none; }
+  </style>
+</head>
+
+<body onload="proteger()">
+
+<header>
+  <h1>Dia 14 – Módulos e Bibliotecas em Python</h1>
+  <p>Curso Python em 30 Dias</p>
+</header>
+
+<main>
+
+<h2>1️⃣ Introdução Conceitual</h2>
+
+<p>
+À medida que programas crescem, colocar todo o código em um único arquivo se torna
+confuso e difícil de manter. Para resolver isso, Python permite dividir o código
+em partes menores, organizadas e reutilizáveis, chamadas de <strong>módulos</strong>.
+</p>
+
+<p>
+Além disso, Python possui um vasto ecossistema de <strong>bibliotecas</strong>,
+que são conjuntos de módulos prontos para uso, criados pela comunidade ou pela
+própria linguagem.
+</p>
+
+<div class="conceito">
+<strong>Conceito-chave:</strong><br>
+Módulos e bibliotecas permitem reutilizar código e organizar projetos de forma
+profissional.
+</div>
+
+<h2>2️⃣ Explicação Técnica Detalhada</h2>
+
+<p>
+Um módulo é simplesmente um arquivo Python (<code>.py</code>) que contém funções,
+variáveis ou classes. Para utilizar um módulo, usamos a palavra-chave
+<code>import</code>.
+</p>
+
+<p>
+Bibliotecas são conjuntos de módulos. Algumas já vêm instaladas com o Python,
+como <code>math</code>, <code>random</code> e <code>datetime</code>. Outras podem
+ser instaladas usando o <code>pip</code>.
+</p>
+
+<p>
+Existem diferentes formas de importar módulos:
+</p>
+
+<ul>
+  <li><code>import modulo</code></li>
+  <li><code>from modulo import funcao</code></li>
+  <li><code>import modulo as apelido</code></li>
+</ul>
+
+<h2>3️⃣ Exemplos Práticos (do básico ao avançado)</h2>
+
+<div class="exemplo">
+<h3>Exemplo 1 – Usando um módulo padrão</h3>
+<pre><code>
+import math
+
+print(math.sqrt(25))
+</code></pre>
+<p>
+O módulo <code>math</code> fornece funções matemáticas prontas.
+</p>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 2 – Importando funções específicas</h3>
+<pre><code>
+from random import randint
+
+numero = randint(1, 10)
+print(numero)
+</code></pre>
+<p>
+Aqui importamos apenas a função necessária do módulo <code>random</code>.
+</p>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 3 – Criando e usando um módulo próprio</h3>
+<pre><code>
+# arquivo: util.py
+def dobro(n):
+    return n * 2
+</code></pre>
+
+<pre><code>
+# arquivo principal
+import util
+
+print(util.dobro(5))
+</code></pre>
+<p>
+Este exemplo mostra como criar e reutilizar um módulo personalizado.
+</p>
+</div>
+
+<h2>4️⃣ Testes de Conhecimento</h2>
+
+<div class="teste">
+<p><strong>Teste 1:</strong> O que é um módulo?</p>
+<p><strong>Teste 2:</strong> Qual comando é usado para importar módulos?</p>
+<p><strong>Teste 3:</strong> Para que serve o <code>pip</code>?</p>
+</div>
+
+<h2>5️⃣ Desafios</h2>
+
+<div class="desafio">
+<p><strong>Desafio 1 (Iniciante):</strong> Use o módulo <code>math</code> para calcular a raiz quadrada.</p>
+<p><strong>Desafio 2 (Intermediário):</strong> Gere um número aleatório entre 1 e 100.</p>
+<p><strong>Desafio 3 (Avançado):</strong> Crie um módulo próprio com uma função personalizada.</p>
+</div>
+
+<h2>6️⃣ Resolução dos Testes</h2>
+
+<div class="resolucao">
+<p><strong>Teste 1:</strong> Um arquivo Python que contém código reutilizável.</p>
+<p><strong>Teste 2:</strong> O comando <code>import</code>.</p>
+<p><strong>Teste 3:</strong> Para instalar bibliotecas externas.</p>
+</div>
+
+<h2>7️⃣ Resolução dos Desafios</h2>
+
+<div class="resolucao">
+<pre><code>
+# Desafio 1
+import math
+print(math.sqrt(16))
+
+# Desafio 2
+from random import randint
+print(randint(1, 100))
+
+# Desafio 3
+# modulo: ferramentas.py
+def soma(a, b):
+    return a + b
+</code></pre>
+</div>
+
+<h2>8️⃣ Conclusão da Aula</h2>
+
+<p>
+Neste dia, você aprendeu a utilizar módulos e bibliotecas em Python, entendendo
+como importar código pronto, criar seus próprios módulos e organizar projetos
+de forma profissional. Esse conhecimento é essencial para trabalhar com projetos
+reais e bibliotecas externas nos próximos blocos do curso.
+</p>
+
+<footer>
+  <a href="../../dashboard.html">⬅ Voltar ao Dashboard</a>
+</footer>
+
+</main>
+
+<script src="../../script.js"></script>
+</body>
+</html>

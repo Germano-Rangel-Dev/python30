@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula 17 – Tratamento de Erros em Python</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #fff;
+      padding: 28px;
+      text-align: center;
+    }
+    main {
+      max-width: 920px;
+      margin: auto;
+      background: #ffffff;
+      padding: 36px;
+    }
+    h1, h2, h3 { color: #1e293b; }
+    h2 { margin-top: 48px; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; }
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 18px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    .conceito, .exemplo, .teste, .desafio, .resolucao {
+      padding: 18px;
+      margin: 28px 0;
+      border-left: 5px solid;
+    }
+    .conceito { background: #eef2ff; border-color: #6366f1; }
+    .exemplo { background: #f8fafc; border-color: #0ea5e9; }
+    .teste { background: #ecfeff; border-color: #06b6d4; }
+    .desafio { background: #fff7ed; border-color: #f97316; }
+    .resolucao { background: #f0fdf4; border-color: #22c55e; }
+    footer { text-align: center; margin: 60px 0 20px; }
+    a { color: #2563eb; font-weight: bold; text-decoration: none; }
+  </style>
+</head>
+
+<body onload="proteger()">
+
+<header>
+  <h1>Dia 17 – Tratamento de Erros em Python</h1>
+  <p>Curso Python em 30 Dias</p>
+</header>
+
+<main>
+
+<h2>1️⃣ Introdução Conceitual</h2>
+
+<p>
+Em programas reais, erros acontecem: entradas inválidas, arquivos inexistentes,
+divisões por zero, falhas de conversão, entre outros. Se esses erros não forem
+tratados, o programa pode encerrar de forma abrupta, prejudicando a experiência
+do usuário.
+</p>
+
+<p>
+O tratamento de erros permite que o programa lide com situações inesperadas de
+forma controlada, exibindo mensagens claras e mantendo a execução estável.
+Em Python, isso é feito principalmente com <code>try</code> e <code>except</code>.
+</p>
+
+<div class="conceito">
+<strong>Conceito-chave:</strong><br>
+Tratamento de erros permite capturar exceções e evitar que o programa falhe
+de forma inesperada.
+</div>
+
+<h2>2️⃣ Explicação Técnica Detalhada</h2>
+
+<p>
+O bloco <code>try</code> envolve o código que pode gerar um erro. Caso uma exceção
+ocorra, a execução salta para o bloco <code>except</code>.
+</p>
+
+<p>
+É possível tratar exceções específicas (como <code>ValueError</code>,
+<code>ZeroDivisionError</code>) ou usar um <code>except</code> genérico.
+Também podemos usar <code>else</code> (executa se não houver erro) e
+<code>finally</code> (executa sempre).
+</p>
+
+<h2>3️⃣ Exemplos Práticos (do básico ao avançado)</h2>
+
+<div class="exemplo">
+<h3>Exemplo 1 – Tratamento básico</h3>
+<pre><code>
+try:
+    numero = int(input("Digite um número: "))
+    print("Número digitado:", numero)
+except ValueError:
+    print("Erro: você não digitou um número válido.")
+</code></pre>
+<p>
+Captura erro de conversão quando o usuário digita algo que não é número.
+</p>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 2 – Divisão por zero</h3>
+<pre><code>
+try:
+    a = int(input("Digite o numerador: "))
+    b = int(input("Digite o denominador: "))
+    print(a / b)
+except ZeroDivisionError:
+    print("Erro: divisão por zero não é permitida.")
+</code></pre>
+<p>
+Evita que o programa quebre ao tentar dividir por zero.
+</p>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 3 – try / except / else / finally</h3>
+<pre><code>
+try:
+    x = int(input("Digite um número: "))
+    resultado = 10 / x
+except Exception as erro:
+    print("Erro:", erro)
+else:
+    print("Resultado:", resultado)
+finally:
+    print("Fim da execução")
+</code></pre>
+<p>
+Demonstra o fluxo completo de tratamento de exceções.
+</p>
+</div>
+
+<h2>4️⃣ Testes de Conhecimento</h2>
+
+<div class="teste">
+<p><strong>Teste 1:</strong> Para que serve o bloco <code>try</code>?</p>
+<p><strong>Teste 2:</strong> O que acontece quando uma exceção ocorre?</p>
+<p><strong>Teste 3:</strong> Qual a função do bloco <code>finally</code>?</p>
+</div>
+
+<h2>5️⃣ Desafios</h2>
+
+<div class="desafio">
+<p><strong>Desafio 1 (Iniciante):</strong> Trate erro ao converter texto em número.</p>
+<p><strong>Desafio 2 (Intermediário):</strong> Trate divisão por zero e valor inválido.</p>
+<p><strong>Desafio 3 (Avançado):</strong> Crie um programa robusto que nunca quebre por erro de entrada.</p>
+</div>
+
+<h2>6️⃣ Resolução dos Testes</h2>
+
+<div class="resolucao">
+<p><strong>Teste 1:</strong> Para envolver código que pode gerar erro.</p>
+<p><strong>Teste 2:</strong> O fluxo vai para o bloco <code>except</code>.</p>
+<p><strong>Teste 3:</strong> Executa sempre, com ou sem erro.</p>
+</div>
+
+<h2>7️⃣ Resolução dos Desafios</h2>
+
+<div class="resolucao">
+<pre><code>
+# Desafio 1
+try:
+    idade = int(input("Digite sua idade: "))
+except ValueError:
+    print("Entrada inválida.")
+
+# Desafio 2
+try:
+    a = int(input("A: "))
+    b = int(input("B: "))
+    print(a / b)
+except (ValueError, ZeroDivisionError):
+    print("Erro de entrada ou divisão.")
+
+# Desafio 3
+while True:
+    try:
+        n = int(input("Digite um número válido: "))
+        break
+    except ValueError:
+        print("Tente novamente.")
+</code></pre>
+</div>
+
+<h2>8️⃣ Conclusão da Aula</h2>
+
+<p>
+Neste dia, você aprendeu a tratar erros e exceções em Python, tornando seus
+programas mais seguros, estáveis e profissionais. Esse conceito é essencial
+para qualquer aplicação real e será amplamente utilizado em projetos maiores.
+</p>
+
+<footer>
+  <a href="../../dashboard.html">⬅ Voltar ao Dashboard</a>
+</footer>
+
+</main>
+
+<script src="../../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula 22 – Banco de Dados com Python (SQLite)</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #fff;
+      padding: 28px;
+      text-align: center;
+    }
+    main {
+      max-width: 920px;
+      margin: auto;
+      background: #ffffff;
+      padding: 36px;
+    }
+    h1, h2, h3 { color: #1e293b; }
+    h2 { margin-top: 48px; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; }
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 18px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    .conceito, .exemplo, .teste, .desafio, .resolucao {
+      padding: 18px;
+      margin: 28px 0;
+      border-left: 5px solid;
+    }
+    .conceito { background: #eef2ff; border-color: #6366f1; }
+    .exemplo { background: #f8fafc; border-color: #0ea5e9; }
+    .teste { background: #ecfeff; border-color: #06b6d4; }
+    .desafio { background: #fff7ed; border-color: #f97316; }
+    .resolucao { background: #f0fdf4; border-color: #22c55e; }
+    footer { text-align: center; margin: 60px 0 20px; }
+    a { color: #2563eb; font-weight: bold; text-decoration: none; }
+  </style>
+</head>
+
+<body onload="proteger()">
+
+<header>
+  <h1>Dia 22 – Banco de Dados com Python (SQLite)</h1>
+  <p>Curso Python em 30 Dias</p>
+</header>
+
+<main>
+
+<h2>1️⃣ Introdução Conceitual</h2>
+
+<p>
+Até agora, utilizamos arquivos para armazenar dados. Embora funcionem bem
+para aplicações simples, arquivos não são ideais para sistemas maiores,
+com muitos usuários e consultas frequentes.
+</p>
+
+<p>
+Para isso, utilizamos <strong>bancos de dados</strong>. Eles permitem armazenar,
+organizar, buscar e atualizar dados de forma rápida, segura e estruturada.
+</p>
+
+<div class="conceito">
+<strong>Conceito-chave:</strong><br>
+Banco de dados é um sistema especializado para armazenar e gerenciar dados
+de forma eficiente.
+</div>
+
+<h2>2️⃣ Por que SQLite?</h2>
+
+<p>
+SQLite é um banco de dados leve, embutido e que não precisa de servidor.
+Ele é ideal para aprender bancos de dados e para aplicações pequenas e médias.
+</p>
+
+<ul>
+  <li>Não requer instalação complexa</li>
+  <li>Funciona com um único arquivo</li>
+  <li>Já vem com o Python</li>
+</ul>
+
+<h2>3️⃣ Primeiros Passos com SQLite</h2>
+
+<div class="exemplo">
+<h3>Exemplo 1 – Criando conexão</h3>
+<pre><code>
+import sqlite3
+
+conexao = sqlite3.connect("banco.db")
+cursor = conexao.cursor()
+</code></pre>
+<p>
+Criamos uma conexão com o banco de dados.
+</p>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 2 – Criando tabela</h3>
+<pre><code>
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT,
+    email TEXT,
+    senha TEXT
+)
+""")
+conexao.commit()
+</code></pre>
+<p>
+Criamos uma tabela estruturada para usuários.
+</p>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 3 – Inserindo dados</h3>
+<pre><code>
+cursor.execute(
+    "INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)",
+    ("Germano", "email@email.com", "hash")
+)
+conexao.commit()
+</code></pre>
+<p>
+Inserção segura utilizando parâmetros.
+</p>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 4 – Consultando dados</h3>
+<pre><code>
+cursor.execute("SELECT * FROM usuarios")
+usuarios = cursor.fetchall()
+
+for u in usuarios:
+    print(u)
+</code></pre>
+</div>
+
+<h2>4️⃣ Testes de Conhecimento</h2>
+
+<div class="teste">
+<p><strong>Teste 1:</strong> O que é um banco de dados?</p>
+<p><strong>Teste 2:</strong> Qual vantagem do SQLite?</p>
+<p><strong>Teste 3:</strong> Para que serve o método <code>commit()</code>?</p>
+</div>
+
+<h2>5️⃣ Desafios</h2>
+
+<div class="desafio">
+<p><strong>Desafio 1 (Iniciante):</strong> Crie uma tabela de produtos.</p>
+<p><strong>Desafio 2 (Intermediário):</strong> Insira e liste produtos.</p>
+<p><strong>Desafio 3 (Avançado):</strong> Busque usuários por email.</p>
+</div>
+
+<h2>6️⃣ Resolução dos Testes</h2>
+
+<div class="resolucao">
+<p><strong>Teste 1:</strong> Sistema para armazenar e gerenciar dados.</p>
+<p><strong>Teste 2:</strong> Simples, leve e sem servidor.</p>
+<p><strong>Teste 3:</strong> Confirmar alterações no banco.</p>
+</div>
+
+<h2>7️⃣ Resolução dos Desafios (Exemplo)</h2>
+
+<div class="resolucao">
+<pre><code>
+# Buscar usuário por email
+cursor.execute(
+    "SELECT * FROM usuarios WHERE email = ?",
+    ("email@email.com",)
+)
+print(cursor.fetchone())
+</code></pre>
+</div>
+
+<h2>8️⃣ Conclusão da Aula</h2>
+
+<p>
+Neste dia, você aprendeu os fundamentos de banco de dados com Python usando SQLite.
+Esse conhecimento é essencial para aplicações reais, sistemas de login,
+dashboards e APIs que serão vistos nos próximos dias.
+</p>
+
+<footer>
+  <a href="../../dashboard.html">⬅ Voltar ao Dashboard</a>
+</footer>
+
+</main>
+
+<script src="../../script.js"></script>
+</body>
+</html>

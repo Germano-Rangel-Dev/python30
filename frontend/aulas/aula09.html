@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula 09 – Laços de Repetição em Python</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #fff;
+      padding: 28px;
+      text-align: center;
+    }
+    main {
+      max-width: 920px;
+      margin: auto;
+      background: #ffffff;
+      padding: 36px;
+    }
+    h1, h2, h3 { color: #1e293b; }
+    h2 { margin-top: 48px; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; }
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 18px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    .conceito, .exemplo, .teste, .desafio, .resolucao {
+      padding: 18px;
+      margin: 28px 0;
+      border-left: 5px solid;
+    }
+    .conceito { background: #eef2ff; border-color: #6366f1; }
+    .exemplo { background: #f8fafc; border-color: #0ea5e9; }
+    .teste { background: #ecfeff; border-color: #06b6d4; }
+    .desafio { background: #fff7ed; border-color: #f97316; }
+    .resolucao { background: #f0fdf4; border-color: #22c55e; }
+    footer { text-align: center; margin: 60px 0 20px; }
+    a { color: #2563eb; font-weight: bold; text-decoration: none; }
+  </style>
+</head>
+
+<body onload="proteger()">
+
+<header>
+  <h1>Dia 09 – Laços de Repetição em Python</h1>
+  <p>Curso Python em 30 Dias</p>
+</header>
+
+<main>
+
+<h2>1️⃣ Introdução Conceitual</h2>
+
+<p>
+Em muitos programas, é necessário executar o mesmo bloco de código várias vezes.
+Repetir manualmente o mesmo código não é eficiente e torna o programa difícil de
+manter. Para resolver isso, utilizamos os <strong>laços de repetição</strong>.
+</p>
+
+<p>
+Laços permitem que um conjunto de instruções seja executado repetidamente,
+enquanto uma condição for verdadeira ou enquanto houver elementos a percorrer.
+Em Python, os principais laços são <code>while</code> e <code>for</code>.
+</p>
+
+<div class="conceito">
+<strong>Conceito-chave:</strong><br>
+Laços de repetição permitem executar um bloco de código várias vezes de forma
+controlada e automática.
+</div>
+
+<h2>2️⃣ Explicação Técnica Detalhada</h2>
+
+<p>
+O laço <code>while</code> executa um bloco de código enquanto uma condição for
+verdadeira. É importante garantir que essa condição em algum momento se torne
+falsa, caso contrário o programa entrará em um <strong>loop infinito</strong>.
+</p>
+
+<p>
+Já o laço <code>for</code> é usado para percorrer sequências, como listas,
+intervalos de números ou textos. Ele é mais seguro e previsível para a maioria
+dos casos.
+</p>
+
+<p>
+A função <code>range()</code> é frequentemente utilizada com o <code>for</code>
+para gerar sequências numéricas.
+</p>
+
+<h2>3️⃣ Exemplos Práticos (do básico ao avançado)</h2>
+
+<div class="exemplo">
+<h3>Exemplo 1 – Laço while</h3>
+<pre><code>
+contador = 1
+
+while contador <= 5:
+    print(contador)
+    contador += 1
+</code></pre>
+<p>
+O laço será executado enquanto <code>contador</code> for menor ou igual a 5.
+A cada repetição, o valor é incrementado.
+</p>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 2 – Laço for com range</h3>
+<pre><code>
+for i in range(1, 6):
+    print(i)
+</code></pre>
+<p>
+O <code>range(1, 6)</code> gera números de 1 a 5. O laço percorre automaticamente
+essa sequência.
+</p>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 3 – Percorrendo texto</h3>
+<pre><code>
+nome = "Python"
+
+for letra in nome:
+    print(letra)
+</code></pre>
+<p>
+Neste exemplo, o laço percorre cada caractere da string.
+</p>
+</div>
+
+<h2>4️⃣ Testes de Conhecimento</h2>
+
+<div class="teste">
+<p><strong>Teste 1:</strong> Quando usar <code>while</code>?</p>
+<p><strong>Teste 2:</strong> Para que serve a função <code>range()</code>?</p>
+<p><strong>Teste 3:</strong> O que é um loop infinito?</p>
+</div>
+
+<h2>5️⃣ Desafios</h2>
+
+<div class="desafio">
+<p><strong>Desafio 1 (Iniciante):</strong> Mostre os números de 1 a 10 usando <code>for</code>.</p>
+<p><strong>Desafio 2 (Intermediário):</strong> Mostre apenas números pares de 1 a 20.</p>
+<p><strong>Desafio 3 (Avançado):</strong> Crie um contador regressivo usando <code>while</code>.</p>
+</div>
+
+<h2>6️⃣ Resolução dos Testes</h2>
+
+<div class="resolucao">
+<p><strong>Teste 1:</strong> Quando a quantidade de repetições depende de uma condição.</p>
+<p><strong>Teste 2:</strong> Gera uma sequência de números.</p>
+<p><strong>Teste 3:</strong> Um laço que nunca termina porque a condição nunca fica falsa.</p>
+</div>
+
+<h2>7️⃣ Resolução dos Desafios</h2>
+
+<div class="resolucao">
+<pre><code>
+# Desafio 1
+for i in range(1, 11):
+    print(i)
+
+# Desafio 2
+for i in range(1, 21):
+    if i % 2 == 0:
+        print(i)
+
+# Desafio 3
+contador = 10
+while contador >= 1:
+    print(contador)
+    contador -= 1
+</code></pre>
+</div>
+
+<h2>8️⃣ Conclusão da Aula</h2>
+
+<p>
+Neste dia, você aprendeu a usar laços de repetição para automatizar tarefas e
+executar código várias vezes de forma controlada. Esse conceito é essencial para
+trabalhar com grandes volumes de dados e será muito utilizado ao longo do curso.
+No próximo dia, veremos como armazenar vários valores usando listas.
+</p>
+
+<footer>
+  <a href="../../dashboard.html">⬅ Voltar ao Dashboard</a>
+</footer>
+
+</main>
+
+<script src="../../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula 19 – Encapsulamento, Herança e Polimorfismo</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #fff;
+      padding: 28px;
+      text-align: center;
+    }
+    main {
+      max-width: 920px;
+      margin: auto;
+      background: #ffffff;
+      padding: 36px;
+    }
+    h1, h2, h3 { color: #1e293b; }
+    h2 { margin-top: 48px; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; }
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 18px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    .conceito, .exemplo, .teste, .desafio, .resolucao {
+      padding: 18px;
+      margin: 28px 0;
+      border-left: 5px solid;
+    }
+    .conceito { background: #eef2ff; border-color: #6366f1; }
+    .exemplo { background: #f8fafc; border-color: #0ea5e9; }
+    .teste { background: #ecfeff; border-color: #06b6d4; }
+    .desafio { background: #fff7ed; border-color: #f97316; }
+    .resolucao { background: #f0fdf4; border-color: #22c55e; }
+    footer { text-align: center; margin: 60px 0 20px; }
+    a { color: #2563eb; font-weight: bold; text-decoration: none; }
+  </style>
+</head>
+
+<body onload="proteger()">
+
+<header>
+  <h1>Dia 19 – Encapsulamento, Herança e Polimorfismo</h1>
+  <p>Curso Python em 30 Dias</p>
+</header>
+
+<main>
+
+<h2>1️⃣ Introdução Conceitual</h2>
+
+<p>
+No dia anterior, você aprendeu a criar classes e objetos. Agora é o momento de
+aprofundar a Programação Orientada a Objetos entendendo como proteger dados,
+reaproveitar código e permitir comportamentos flexíveis.
+</p>
+
+<p>
+Esses objetivos são alcançados através de três pilares fundamentais da POO:
+<strong>Encapsulamento</strong>, <strong>Herança</strong> e
+<strong>Polimorfismo</strong>.
+</p>
+
+<div class="conceito">
+<strong>Conceito-chave:</strong><br>
+Encapsulamento protege dados, herança reaproveita código e polimorfismo permite
+comportamentos diferentes para métodos com o mesmo nome.
+</div>
+
+<h2>2️⃣ Explicação Técnica Detalhada</h2>
+
+<h3>🔒 Encapsulamento</h3>
+<p>
+Encapsulamento consiste em restringir o acesso direto aos atributos de um objeto.
+Em Python, isso é feito por convenção usando um sublinhado <code>_</code> ou
+dois sublinhados <code>__</code>.
+</p>
+
+<h3>🧬 Herança</h3>
+<p>
+Herança permite criar uma nova classe baseada em outra, reaproveitando atributos
+e métodos existentes.
+</p>
+
+<h3>🔁 Polimorfismo</h3>
+<p>
+Polimorfismo permite que métodos com o mesmo nome tenham comportamentos
+diferentes dependendo da classe.
+</p>
+
+<h2>3️⃣ Exemplos Práticos (do básico ao avançado)</h2>
+
+<div class="exemplo">
+<h3>Exemplo 1 – Encapsulamento</h3>
+<pre><code>
+class Conta:
+    def __init__(self, saldo):
+        self._saldo = saldo
+
+    def mostrar_saldo(self):
+        return self._saldo
+</code></pre>
+<p>
+O atributo <code>_saldo</code> não deve ser acessado diretamente.
+</p>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 2 – Herança</h3>
+<pre><code>
+class Animal:
+    def falar(self):
+        print("O animal faz um som")
+
+class Cachorro(Animal):
+    def falar(self):
+        print("O cachorro late")
+</code></pre>
+<p>
+A classe <code>Cachorro</code> herda de <code>Animal</code>.
+</p>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 3 – Polimorfismo</h3>
+<pre><code>
+animais = [Animal(), Cachorro()]
+
+for animal in animais:
+    animal.falar()
+</code></pre>
+<p>
+Cada objeto responde ao método <code>falar()</code> de forma diferente.
+</p>
+</div>
+
+<h2>4️⃣ Testes de Conhecimento</h2>
+
+<div class="teste">
+<p><strong>Teste 1:</strong> O que é encapsulamento?</p>
+<p><strong>Teste 2:</strong> Para que serve herança?</p>
+<p><strong>Teste 3:</strong> O que é polimorfismo?</p>
+</div>
+
+<h2>5️⃣ Desafios</h2>
+
+<div class="desafio">
+<p><strong>Desafio 1 (Iniciante):</strong> Crie uma classe com atributo protegido.</p>
+<p><strong>Desafio 2 (Intermediário):</strong> Crie uma classe filha que herde métodos.</p>
+<p><strong>Desafio 3 (Avançado):</strong> Use polimorfismo em um exemplo prático.</p>
+</div>
+
+<h2>6️⃣ Resolução dos Testes</h2>
+
+<div class="resolucao">
+<p><strong>Teste 1:</strong> Proteção do acesso direto aos dados.</p>
+<p><strong>Teste 2:</strong> Reutilizar código e criar hierarquias.</p>
+<p><strong>Teste 3:</strong> Métodos com mesmo nome e comportamentos diferentes.</p>
+</div>
+
+<h2>7️⃣ Resolução dos Desafios</h2>
+
+<div class="resolucao">
+<pre><code>
+# Desafio 1
+class Usuario:
+    def __init__(self, nome):
+        self._nome = nome
+
+# Desafio 2
+class Funcionario(Usuario):
+    def mostrar(self):
+        print(self._nome)
+
+# Desafio 3
+class Gato(Animal):
+    def falar(self):
+        print("O gato mia")
+</code></pre>
+</div>
+
+<h2>8️⃣ Conclusão da Aula</h2>
+
+<p>
+Neste dia, você aprofundou seus conhecimentos em Programação Orientada a Objetos,
+aprendendo como proteger dados, reutilizar código e criar sistemas flexíveis
+com encapsulamento, herança e polimorfismo. Esses conceitos são essenciais para
+projetos profissionais e aplicações de médio e grande porte.
+</p>
+
+<footer>
+  <a href="../../dashboard.html">⬅ Voltar ao Dashboard</a>
+</footer>
+
+</main>
+
+<script src="../../script.js"></script>
+</body>
+</html>

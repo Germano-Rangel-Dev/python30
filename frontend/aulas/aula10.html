@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula 10 – Listas em Python</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #fff;
+      padding: 28px;
+      text-align: center;
+    }
+    main {
+      max-width: 920px;
+      margin: auto;
+      background: #ffffff;
+      padding: 36px;
+    }
+    h1, h2, h3 { color: #1e293b; }
+    h2 { margin-top: 48px; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; }
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 18px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    .conceito, .exemplo, .teste, .desafio, .resolucao {
+      padding: 18px;
+      margin: 28px 0;
+      border-left: 5px solid;
+    }
+    .conceito { background: #eef2ff; border-color: #6366f1; }
+    .exemplo { background: #f8fafc; border-color: #0ea5e9; }
+    .teste { background: #ecfeff; border-color: #06b6d4; }
+    .desafio { background: #fff7ed; border-color: #f97316; }
+    .resolucao { background: #f0fdf4; border-color: #22c55e; }
+    footer { text-align: center; margin: 60px 0 20px; }
+    a { color: #2563eb; font-weight: bold; text-decoration: none; }
+  </style>
+</head>
+
+<body onload="proteger()">
+
+<header>
+  <h1>Dia 10 – Listas em Python</h1>
+  <p>Curso Python em 30 Dias</p>
+</header>
+
+<main>
+
+<h2>1️⃣ Introdução Conceitual</h2>
+
+<p>
+Até agora, trabalhamos principalmente com variáveis que armazenam apenas um valor.
+Em aplicações reais, no entanto, é muito comum precisar armazenar e manipular
+<strong>vários valores relacionados</strong>, como notas de alunos, nomes de usuários
+ou registros de vendas.
+</p>
+
+<p>
+Para resolver esse problema, Python oferece uma estrutura chamada <strong>lista</strong>.
+Listas permitem armazenar múltiplos valores em uma única variável, mantendo a
+ordem dos elementos e permitindo modificações ao longo do programa.
+</p>
+
+<div class="conceito">
+<strong>Conceito-chave:</strong><br>
+Lista é uma estrutura de dados que armazena vários valores em uma única variável,
+de forma ordenada e mutável.
+</div>
+
+<h2>2️⃣ Explicação Técnica Detalhada</h2>
+
+<p>
+Uma lista é criada utilizando colchetes <code>[]</code>, com os elementos separados
+por vírgula. Os elementos podem ser de qualquer tipo: números, textos, valores
+lógicos e até outras listas.
+</p>
+
+<p>
+Cada elemento da lista possui um índice, que começa em <strong>0</strong>. Isso
+significa que o primeiro elemento está na posição 0, o segundo na posição 1, e
+assim por diante.
+</p>
+
+<p>
+Listas são <strong>mutáveis</strong>, ou seja, seus valores podem ser alterados após
+a criação, diferentemente de outros tipos de dados que veremos mais adiante.
+</p>
+
+<h2>3️⃣ Exemplos Práticos (do básico ao avançado)</h2>
+
+<div class="exemplo">
+<h3>Exemplo 1 – Criando uma lista</h3>
+<pre><code>
+numeros = [10, 20, 30, 40]
+print(numeros)
+</code></pre>
+<p>
+Criamos uma lista com quatro números inteiros.
+</p>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 2 – Acessando elementos</h3>
+<pre><code>
+nomes = ["Ana", "Bruno", "Carlos"]
+print(nomes[0])
+print(nomes[1])
+</code></pre>
+<p>
+O acesso aos elementos é feito pelo índice. O primeiro elemento sempre tem índice 0.
+</p>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 3 – Modificando e percorrendo a lista</h3>
+<pre><code>
+notas = [7, 8, 6]
+notas[1] = 9
+
+for nota in notas:
+    print(nota)
+</code></pre>
+<p>
+Neste exemplo, alteramos um valor da lista e depois usamos um laço <code>for</code>
+para percorrer todos os elementos.
+</p>
+</div>
+
+<h2>4️⃣ Testes de Conhecimento</h2>
+
+<div class="teste">
+<p><strong>Teste 1:</strong> O que é uma lista?</p>
+<p><strong>Teste 2:</strong> Qual é o índice do primeiro elemento de uma lista?</p>
+<p><strong>Teste 3:</strong> Listas em Python são mutáveis ou imutáveis?</p>
+</div>
+
+<h2>5️⃣ Desafios</h2>
+
+<div class="desafio">
+<p><strong>Desafio 1 (Iniciante):</strong> Crie uma lista com três nomes e exiba todos.</p>
+<p><strong>Desafio 2 (Intermediário):</strong> Crie uma lista de números e mostre apenas os pares.</p>
+<p><strong>Desafio 3 (Avançado):</strong> Calcule a média de uma lista de notas.</p>
+</div>
+
+<h2>6️⃣ Resolução dos Testes</h2>
+
+<div class="resolucao">
+<p><strong>Teste 1:</strong> Uma estrutura que armazena vários valores em uma única variável.</p>
+<p><strong>Teste 2:</strong> O índice é 0.</p>
+<p><strong>Teste 3:</strong> Listas são mutáveis.</p>
+</div>
+
+<h2>7️⃣ Resolução dos Desafios</h2>
+
+<div class="resolucao">
+<pre><code>
+# Desafio 1
+nomes = ["Ana", "Bruno", "Carlos"]
+for nome in nomes:
+    print(nome)
+
+# Desafio 2
+numeros = [1, 2, 3, 4, 5, 6]
+for n in numeros:
+    if n % 2 == 0:
+        print(n)
+
+# Desafio 3
+notas = [7, 8, 6, 9]
+media = sum(notas) / len(notas)
+print("Média:", media)
+</code></pre>
+</div>
+
+<h2>8️⃣ Conclusão da Aula</h2>
+
+<p>
+Neste dia, você aprendeu o que são listas, como criá-las, acessar seus elementos,
+modificá-las e percorrê-las com laços de repetição. Listas são uma das estruturas
+mais utilizadas em Python e servirão de base para estruturas mais avançadas,
+como tuplas e dicionários, nos próximos dias.
+</p>
+
+<footer>
+  <a href="../../dashboard.html">⬅ Voltar ao Dashboard</a>
+</footer>
+
+</main>
+
+<script src="../../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula 06 – Entrada de Dados em Python</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #fff;
+      padding: 28px;
+      text-align: center;
+    }
+    main {
+      max-width: 920px;
+      margin: auto;
+      background: #ffffff;
+      padding: 36px;
+    }
+    h1, h2, h3 { color: #1e293b; }
+    h2 { margin-top: 48px; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; }
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 18px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    .conceito, .exemplo, .teste, .desafio, .resolucao {
+      padding: 18px;
+      margin: 28px 0;
+      border-left: 5px solid;
+    }
+    .conceito { background: #eef2ff; border-color: #6366f1; }
+    .exemplo { background: #f8fafc; border-color: #0ea5e9; }
+    .teste { background: #ecfeff; border-color: #06b6d4; }
+    .desafio { background: #fff7ed; border-color: #f97316; }
+    .resolucao { background: #f0fdf4; border-color: #22c55e; }
+    footer { text-align: center; margin: 60px 0 20px; }
+    a { color: #2563eb; font-weight: bold; text-decoration: none; }
+  </style>
+</head>
+
+<body onload="proteger()">
+
+<header>
+  <h1>Dia 06 – Entrada de Dados em Python</h1>
+  <p>Curso Python em 30 Dias</p>
+</header>
+
+<main>
+
+<h2>1️⃣ Introdução Conceitual</h2>
+
+<p>
+Até agora, todos os programas que criamos tinham valores definidos diretamente
+no código. Embora isso seja útil para aprender, programas reais precisam
+<strong>interagir com o usuário</strong>, recebendo informações durante a execução.
+</p>
+
+<p>
+A entrada de dados permite que um programa se torne dinâmico, adaptando seu
+comportamento conforme as informações fornecidas pelo usuário. Em Python,
+essa funcionalidade é realizada principalmente pela função <code>input()</code>.
+</p>
+
+<div class="conceito">
+<strong>Conceito-chave:</strong><br>
+Entrada de dados é o processo de receber informações externas (geralmente do usuário)
+durante a execução de um programa.
+</div>
+
+<h2>2️⃣ Explicação Técnica Detalhada</h2>
+
+<p>
+A função <code>input()</code> pausa a execução do programa e aguarda que o usuário
+digite algum valor no teclado. Tudo o que o usuário digitar será retornado pela
+função como um <strong>texto</strong> (<code>str</code>).
+</p>
+
+<p>
+Esse detalhe é extremamente importante: mesmo que o usuário digite um número,
+o Python interpretará esse valor inicialmente como texto. Para realizar
+operações matemáticas, é necessário converter o valor para o tipo correto
+utilizando funções como <code>int()</code> ou <code>float()</code>.
+</p>
+
+<h2>3️⃣ Exemplos Práticos (do básico ao avançado)</h2>
+
+<div class="exemplo">
+<h3>Exemplo 1 – Entrada simples de texto</h3>
+<pre><code>
+nome = input("Digite seu nome: ")
+print("Olá,", nome)
+</code></pre>
+<p>
+Neste exemplo, o programa solicita o nome do usuário e depois exibe uma
+mensagem personalizada.
+</p>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 2 – Entrada de números</h3>
+<pre><code>
+idade = input("Digite sua idade: ")
+idade = int(idade)
+print("Você tem", idade, "anos")
+</code></pre>
+<p>
+Aqui ocorre a conversão do texto digitado para um número inteiro usando
+<code>int()</code>.
+</p>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 3 – Cálculo com entrada de dados</h3>
+<pre><code>
+a = float(input("Digite o primeiro número: "))
+b = float(input("Digite o segundo número: "))
+print("Soma:", a + b)
+</code></pre>
+<p>
+Este exemplo mostra como receber dois valores numéricos, convertê-los e
+realizar uma operação matemática.
+</p>
+</div>
+
+<h2>4️⃣ Testes de Conhecimento</h2>
+
+<div class="teste">
+<p><strong>Teste 1:</strong> O que a função <code>input()</code> faz?</p>
+<p><strong>Teste 2:</strong> Qual o tipo de dado retornado por <code>input()</code>?</p>
+<p><strong>Teste 3:</strong> Por que é necessário converter valores digitados?</p>
+</div>
+
+<h2>5️⃣ Desafios</h2>
+
+<div class="desafio">
+<p><strong>Desafio 1 (Iniciante):</strong> Peça o nome do usuário e exiba uma saudação.</p>
+<p><strong>Desafio 2 (Intermediário):</strong> Peça dois números e mostre a soma.</p>
+<p><strong>Desafio 3 (Avançado):</strong> Peça o ano de nascimento e calcule a idade atual.</p>
+</div>
+
+<h2>6️⃣ Resolução dos Testes</h2>
+
+<div class="resolucao">
+<p><strong>Teste 1:</strong> Ela recebe dados digitados pelo usuário durante a execução.</p>
+<p><strong>Teste 2:</strong> Sempre retorna um texto (<code>str</code>).</p>
+<p><strong>Teste 3:</strong> Para permitir operações matemáticas corretas.</p>
+</div>
+
+<h2>7️⃣ Resolução dos Desafios</h2>
+
+<div class="resolucao">
+<pre><code>
+# Desafio 1
+nome = input("Digite seu nome: ")
+print("Olá,", nome)
+
+# Desafio 2
+a = int(input("Digite um número: "))
+b = int(input("Digite outro número: "))
+print("Soma:", a + b)
+
+# Desafio 3
+ano_nascimento = int(input("Digite seu ano de nascimento: "))
+ano_atual = 2025
+idade = ano_atual - ano_nascimento
+print("Sua idade é:", idade)
+</code></pre>
+</div>
+
+<h2>8️⃣ Conclusão da Aula</h2>
+
+<p>
+Neste dia, você aprendeu como receber dados do usuário utilizando a função
+<code>input()</code>, como converter esses dados para tipos numéricos e como
+utilizá-los em cálculos e mensagens. A partir daqui, seus programas passam a
+interagir de verdade com o usuário.
+</p>
+
+<footer>
+  <a href="../../dashboard.html">⬅ Voltar ao Dashboard</a>
+</footer>
+
+</main>
+
+<script src="../../script.js"></script>
+</body>
+</html>

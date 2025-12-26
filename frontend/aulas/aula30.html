@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula 30 – Projeto Final e Certificação</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #14532d, #052e16);
+      color: #fff;
+      padding: 32px;
+      text-align: center;
+    }
+    main {
+      max-width: 980px;
+      margin: auto;
+      background: #ffffff;
+      padding: 40px;
+    }
+    h1, h2, h3 { color: #14532d; }
+    h2 {
+      margin-top: 52px;
+      border-bottom: 2px solid #d1fae5;
+      padding-bottom: 8px;
+    }
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 18px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    .conceito, .exemplo, .teste, .desafio, .resolucao, .certificado {
+      padding: 20px;
+      margin: 32px 0;
+      border-left: 6px solid;
+    }
+    .conceito { background: #ecfdf5; border-color: #22c55e; }
+    .exemplo { background: #f8fafc; border-color: #0ea5e9; }
+    .teste { background: #eff6ff; border-color: #3b82f6; }
+    .desafio { background: #fff7ed; border-color: #f97316; }
+    .resolucao { background: #f0fdf4; border-color: #16a34a; }
+    .certificado { background: #fefce8; border-color: #eab308; }
+
+    footer {
+      text-align: center;
+      margin: 70px 0 20px;
+      font-size: 1.1em;
+    }
+    a {
+      color: #166534;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body onload="proteger()">
+
+<header>
+  <h1>Dia 30 – Projeto Final + Certificação</h1>
+  <p>Curso Python em 30 Dias</p>
+</header>
+
+<main>
+
+<h2>1️⃣ Encerramento do Curso</h2>
+
+<p>
+Você chegou ao último dia do curso. Ao longo de 30 dias, você percorreu desde
+os fundamentos da linguagem Python até a criação de aplicações completas,
+incluindo banco de dados, APIs, autenticação, frontend e boas práticas.
+</p>
+
+<p>
+Neste dia final, você irá consolidar todo o conhecimento em um
+<strong>projeto final profissional</strong>, equivalente ao que é exigido
+em vagas de nível júnior a pleno.
+</p>
+
+<div class="conceito">
+<strong>Missão final:</strong><br>
+Criar uma aplicação completa, funcional e organizada, integrando tudo o que foi aprendido.
+</div>
+
+<h2>2️⃣ Descrição do Projeto Final</h2>
+
+<p>
+O projeto final será uma <strong>Plataforma de Cadastro e Acesso</strong>,
+contendo:
+</p>
+
+<ul>
+  <li>Cadastro de usuários</li>
+  <li>Login com autenticação JWT</li>
+  <li>Banco de dados SQLite</li>
+  <li>API com FastAPI</li>
+  <li>Frontend consumindo a API</li>
+  <li>Área protegida (dashboard)</li>
+</ul>
+
+<h2>3️⃣ Estrutura Final do Projeto</h2>
+
+<pre><code>
+projeto-final/
+ ├── backend/
+ │   ├── main.py
+ │   ├── database.py
+ │   ├── models.py
+ │   ├── auth.py
+ │   └── requirements.txt
+ ├── frontend/
+ │   ├── index.html
+ │   ├── login.html
+ │   ├── dashboard.html
+ │   └── script.js
+ └── README.md
+</code></pre>
+
+<h2>4️⃣ Exemplo de Fluxo da Aplicação</h2>
+
+<div class="exemplo">
+<ol>
+  <li>Usuário se cadastra</li>
+  <li>Senha é salva com hash</li>
+  <li>Login retorna token JWT</li>
+  <li>Token é salvo no navegador</li>
+  <li>Dashboard consome rota protegida</li>
+</ol>
+</div>
+
+<h2>5️⃣ Testes de Conhecimento Final</h2>
+
+<div class="teste">
+<p><strong>Teste 1:</strong> Qual a função do JWT no sistema?</p>
+<p><strong>Teste 2:</strong> Por que separar backend e frontend?</p>
+<p><strong>Teste 3:</strong> Qual vantagem do uso de banco de dados?</p>
+</div>
+
+<h2>6️⃣ Desafio Final (Obrigatório)</h2>
+
+<div class="desafio">
+<p>
+Implemente no projeto final:
+</p>
+<ul>
+  <li>Validação de formulário no frontend</li>
+  <li>Proteção total do dashboard</li>
+  <li>Logout funcional</li>
+  <li>Tratamento de erros no backend</li>
+</ul>
+</div>
+
+<h2>7️⃣ Resolução Esperada</h2>
+
+<div class="resolucao">
+<p>
+O projeto deve:
+</p>
+<ul>
+  <li>Rodar sem erros</li>
+  <li>Ter código organizado</li>
+  <li>Utilizar boas práticas</li>
+  <li>Demonstrar domínio do Python</li>
+</ul>
+</div>
+
+<h2>8️⃣ Certificado de Conclusão</h2>
+
+<div class="certificado">
+<p>
+Após concluir o projeto final, o aluno está apto a receber o
+<strong>Certificado de Conclusão – Curso Python em 30 Dias</strong>.
+</p>
+
+<p>
+O certificado deve conter:
+</p>
+
+<ul>
+  <li>Nome do aluno</li>
+  <li>Nome do curso</li>
+  <li>Carga horária (ex: 120h)</li>
+  <li>Data de conclusão</li>
+  <li>QR Code de validação</li>
+</ul>
+
+<p>
+Este certificado pode ser gerado automaticamente em PDF e integrado
+à plataforma.
+</p>
+</div>
+
+<h2>9️⃣ Conclusão Final</h2>
+
+<p>
+Você concluiu um curso completo, prático e profissional de Python.
+Com esse conhecimento, você está preparado para:
+</p>
+
+<ul>
+  <li>Desenvolver sistemas completos</li>
+  <li>Criar APIs profissionais</li>
+  <li>Trabalhar com banco de dados</li>
+  <li>Evoluir para frameworks e áreas avançadas</li>
+</ul>
+
+<p>
+Parabéns por chegar até aqui 🚀  
+Este é apenas o começo da sua jornada como desenvolvedor Python.
+</p>
+
+<footer>
+  🎓 <strong>Curso Concluído – Python em 30 Dias</strong><br><br>
+  <a href="../../dashboard.html">⬅ Voltar ao Dashboard</a>
+</footer>
+
+</main>
+
+<script src="../../script.js"></script>
+</body>
+</html>

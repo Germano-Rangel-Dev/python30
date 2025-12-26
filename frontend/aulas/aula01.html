@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula 01 – O que é Python</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #fff;
+      padding: 28px;
+      text-align: center;
+    }
+    main {
+      max-width: 920px;
+      margin: auto;
+      background: #ffffff;
+      padding: 36px;
+    }
+    h1, h2, h3 { color: #1e293b; }
+    h2 { margin-top: 48px; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; }
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 18px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    .conceito, .exemplo, .teste, .desafio, .resolucao {
+      padding: 18px;
+      margin: 28px 0;
+      border-left: 5px solid;
+    }
+    .conceito { background: #eef2ff; border-color: #6366f1; }
+    .exemplo { background: #f8fafc; border-color: #0ea5e9; }
+    .teste { background: #ecfeff; border-color: #06b6d4; }
+    .desafio { background: #fff7ed; border-color: #f97316; }
+    .resolucao { background: #f0fdf4; border-color: #22c55e; }
+    footer { text-align: center; margin: 60px 0 20px; }
+    a { color: #2563eb; font-weight: bold; text-decoration: none; }
+  </style>
+</head>
+
+<body onload="proteger()">
+
+<header>
+  <h1>Dia 01 – O que é Python</h1>
+  <p>Curso Python em 30 Dias</p>
+</header>
+
+<main>
+
+<h2>1️⃣ Introdução Conceitual</h2>
+
+<p>
+Python é uma linguagem de programação de alto nível criada com o objetivo de
+facilitar o desenvolvimento de software. Diferente de linguagens mais antigas
+e complexas, Python foi projetado para ser simples de ler, escrever e manter.
+Isso faz com que o programador possa focar na lógica do problema, e não em
+detalhes técnicos excessivos da linguagem.
+</p>
+
+<p>
+Uma linguagem de programação serve como meio de comunicação entre o ser humano
+e o computador. Python atua como um intermediário: você escreve instruções em
+uma sintaxe próxima da linguagem humana, e o interpretador Python traduz essas
+instruções para o computador executar.
+</p>
+
+<div class="conceito">
+<strong>Conceito-chave:</strong><br>
+Python é uma linguagem interpretada, de alto nível e com tipagem dinâmica,
+utilizada para resolver problemas reais de forma simples e eficiente.
+</div>
+
+<h2>2️⃣ Explicação Técnica Detalhada</h2>
+
+<p>
+Python é classificado como uma linguagem interpretada, o que significa que o
+código é executado linha por linha por um interpretador. Não existe a etapa
+obrigatória de compilação antes da execução, como ocorre em linguagens como C
+ou Java.
+</p>
+
+<p>
+Outra característica importante é a tipagem dinâmica. Em Python, você não
+precisa declarar o tipo de uma variável. O próprio interpretador identifica o
+tipo com base no valor atribuído. Isso torna o código mais curto, mas exige
+atenção para evitar erros lógicos.
+</p>
+
+<h2>3️⃣ Exemplos Práticos (do básico ao avançado)</h2>
+
+<div class="exemplo">
+<h3>Exemplo 1 – Básico</h3>
+<pre><code>
+print("Olá, mundo!")
+</code></pre>
+<p>
+Este é o programa mais simples possível em Python. A função <code>print</code>
+serve para exibir informações na tela. Tudo que está entre aspas é tratado
+como texto.
+</p>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 2 – Intermediário</h3>
+<pre><code>
+nome = "Germano"
+print("Olá,", nome)
+</code></pre>
+<p>
+Aqui introduzimos uma variável. A variável <code>nome</code> armazena um texto
+e depois é usada junto com o <code>print</code>.
+</p>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 3 – Avançado</h3>
+<pre><code>
+nome = "Germano"
+idade = 30
+print(f"Olá, meu nome é {nome} e tenho {idade} anos.")
+</code></pre>
+<p>
+Neste exemplo usamos uma <strong>f-string</strong>, que permite misturar texto
+com variáveis de forma organizada e legível.
+</p>
+</div>
+
+<h2>4️⃣ Testes de Conhecimento</h2>
+
+<div class="teste">
+<p><strong>Teste 1:</strong> O que é uma linguagem de programação?</p>
+<p><strong>Teste 2:</strong> O que significa Python ser interpretado?</p>
+<p><strong>Teste 3:</strong> Qual a vantagem da tipagem dinâmica?</p>
+</div>
+
+<h2>5️⃣ Desafios</h2>
+
+<div class="desafio">
+<p><strong>Desafio 1 (Iniciante):</strong> Escreva um código que mostre seu nome na tela.</p>
+<p><strong>Desafio 2 (Intermediário):</strong> Crie duas variáveis (nome e cidade) e exiba uma frase.</p>
+<p><strong>Desafio 3 (Avançado):</strong> Use f-string para exibir nome, idade e profissão.</p>
+</div>
+
+<h2>6️⃣ Resolução dos Testes</h2>
+
+<div class="resolucao">
+<p><strong>Teste 1:</strong> Uma linguagem de programação permite dar instruções ao computador.</p>
+<p><strong>Teste 2:</strong> O código é executado linha por linha, sem compilação prévia.</p>
+<p><strong>Teste 3:</strong> O código fica mais simples e rápido de escrever.</p>
+</div>
+
+<h2>7️⃣ Resolução dos Desafios</h2>
+
+<div class="resolucao">
+<pre><code>
+# Desafio 1
+print("Germano")
+
+# Desafio 2
+nome = "Germano"
+cidade = "São Paulo"
+print(nome, "mora em", cidade)
+
+# Desafio 3
+nome = "Germano"
+idade = 30
+profissao = "Programador"
+print(f"{nome} tem {idade} anos e trabalha como {profissao}.")
+</code></pre>
+</div>
+
+<h2>8️⃣ Conclusão da Aula</h2>
+
+<p>
+Neste primeiro dia, você entendeu o que é Python, para que ele serve e como
+escrever seus primeiros códigos. Esse conhecimento é a base de todo o curso.
+No próximo dia, você aprenderá a instalar o Python e preparar o ambiente de
+desenvolvimento corretamente.
+</p>
+
+<footer>
+  <a href="../../dashboard.html">⬅ Voltar ao Dashboard</a>
+</footer>
+
+</main>
+
+<script src="../../script.js"></script>
+</body>
+</html>

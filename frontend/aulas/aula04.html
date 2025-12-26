@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula 04 – Variáveis em Python</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #fff;
+      padding: 28px;
+      text-align: center;
+    }
+    main {
+      max-width: 920px;
+      margin: auto;
+      background: #ffffff;
+      padding: 36px;
+    }
+    h1, h2, h3 { color: #1e293b; }
+    h2 { margin-top: 48px; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; }
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 18px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    .conceito, .exemplo, .teste, .desafio, .resolucao {
+      padding: 18px;
+      margin: 28px 0;
+      border-left: 5px solid;
+    }
+    .conceito { background: #eef2ff; border-color: #6366f1; }
+    .exemplo { background: #f8fafc; border-color: #0ea5e9; }
+    .teste { background: #ecfeff; border-color: #06b6d4; }
+    .desafio { background: #fff7ed; border-color: #f97316; }
+    .resolucao { background: #f0fdf4; border-color: #22c55e; }
+    footer { text-align: center; margin: 60px 0 20px; }
+    a { color: #2563eb; font-weight: bold; text-decoration: none; }
+  </style>
+</head>
+
+<body onload="proteger()">
+
+<header>
+  <h1>Dia 04 – Variáveis em Python</h1>
+  <p>Curso Python em 30 Dias</p>
+</header>
+
+<main>
+
+<h2>1️⃣ Introdução Conceitual</h2>
+
+<p>
+Variáveis são um dos conceitos mais importantes da programação. Elas permitem
+armazenar informações temporariamente na memória do computador para que possam
+ser usadas, alteradas e processadas ao longo da execução do programa.
+</p>
+
+<p>
+Sem variáveis, um programa seria extremamente limitado, pois não conseguiria
+guardar valores, trabalhar com dados do usuário ou realizar cálculos úteis.
+</p>
+
+<div class="conceito">
+<strong>Conceito-chave:</strong><br>
+Uma variável é um nome que referencia um valor armazenado na memória.
+</div>
+
+<h2>2️⃣ Explicação Técnica Detalhada</h2>
+
+<p>
+Em Python, criar uma variável é extremamente simples. Basta escolher um nome
+e usar o operador de atribuição <code>=</code>.
+</p>
+
+<p>
+Diferente de outras linguagens, Python não exige a declaração do tipo da variável.
+O tipo é definido automaticamente com base no valor atribuído.
+</p>
+
+<p>
+Python também permite que uma variável mude de tipo ao longo do programa,
+embora isso não seja uma boa prática em códigos profissionais.
+</p>
+
+<h2>3️⃣ Exemplos Práticos (do básico ao avançado)</h2>
+
+<div class="exemplo">
+<h3>Exemplo 1 – Criando variáveis</h3>
+<pre><code>
+nome = "Germano"
+idade = 30
+</code></pre>
+<p>
+Aqui criamos duas variáveis: uma armazenando texto e outra um número inteiro.
+</p>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 2 – Usando variáveis</h3>
+<pre><code>
+nome = "Germano"
+print("Olá,", nome)
+</code></pre>
+<p>
+A variável é usada dentro do <code>print</code> para exibir seu valor.
+</p>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 3 – Atualizando valores</h3>
+<pre><code>
+contador = 1
+contador = contador + 1
+print(contador)
+</code></pre>
+<p>
+Aqui vemos que o valor da variável pode ser alterado durante a execução do programa.
+</p>
+</div>
+
+<h2>4️⃣ Testes de Conhecimento</h2>
+
+<div class="teste">
+<p><strong>Teste 1:</strong> O que é uma variável?</p>
+<p><strong>Teste 2:</strong> O que significa o operador <code>=</code>?</p>
+<p><strong>Teste 3:</strong> Python exige declarar o tipo da variável?</p>
+</div>
+
+<h2>5️⃣ Desafios</h2>
+
+<div class="desafio">
+<p><strong>Desafio 1 (Iniciante):</strong> Crie uma variável com seu nome e exiba na tela.</p>
+<p><strong>Desafio 2 (Intermediário):</strong> Crie duas variáveis numéricas e exiba a soma.</p>
+<p><strong>Desafio 3 (Avançado):</strong> Crie um contador que aumente seu valor.</p>
+</div>
+
+<h2>6️⃣ Resolução dos Testes</h2>
+
+<div class="resolucao">
+<p><strong>Teste 1:</strong> É um nome que referencia um valor na memória.</p>
+<p><strong>Teste 2:</strong> É o operador de atribuição.</p>
+<p><strong>Teste 3:</strong> Não, o tipo é definido automaticamente.</p>
+</div>
+
+<h2>7️⃣ Resolução dos Desafios</h2>
+
+<div class="resolucao">
+<pre><code>
+# Desafio 1
+nome = "Germano"
+print(nome)
+
+# Desafio 2
+a = 10
+b = 20
+print(a + b)
+
+# Desafio 3
+contador = 0
+contador = contador + 1
+print(contador)
+</code></pre>
+</div>
+
+<h2>8️⃣ Conclusão da Aula</h2>
+
+<p>
+Neste dia, você aprendeu o conceito de variáveis, como criá-las, utilizá-las e
+alterar seus valores. Esse conhecimento é essencial para trabalhar com dados
+reais e avançar para tipos de dados e operações mais complexas.
+</p>
+
+<footer>
+  <a href="../../dashboard.html">⬅ Voltar ao Dashboard</a>
+</footer>
+
+</main>
+
+<script src="../../script.js"></script>
+</body>
+</html>

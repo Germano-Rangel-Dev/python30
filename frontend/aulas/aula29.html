@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula 29 – Boas Práticas e Clean Code</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #fff;
+      padding: 28px;
+      text-align: center;
+    }
+    main {
+      max-width: 920px;
+      margin: auto;
+      background: #ffffff;
+      padding: 36px;
+    }
+    h1, h2, h3 { color: #1e293b; }
+    h2 {
+      margin-top: 48px;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 8px;
+    }
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 18px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    .conceito, .exemplo, .teste, .desafio, .resolucao {
+      padding: 18px;
+      margin: 28px 0;
+      border-left: 5px solid;
+    }
+    .conceito { background: #eef2ff; border-color: #6366f1; }
+    .exemplo { background: #f8fafc; border-color: #0ea5e9; }
+    .teste { background: #ecfeff; border-color: #06b6d4; }
+    .desafio { background: #fff7ed; border-color: #f97316; }
+    .resolucao { background: #f0fdf4; border-color: #22c55e; }
+
+    footer { text-align: center; margin: 60px 0 20px; }
+    a { color: #2563eb; font-weight: bold; text-decoration: none; }
+  </style>
+</head>
+
+<body onload="proteger()">
+
+<header>
+  <h1>Dia 29 – Boas Práticas e Clean Code</h1>
+  <p>Curso Python em 30 Dias</p>
+</header>
+
+<main>
+
+<h2>1️⃣ Introdução Conceitual</h2>
+
+<p>
+Saber fazer um código funcionar não é suficiente no mercado profissional.
+É necessário que o código seja <strong>legível</strong>, <strong>organizado</strong>,
+<strong>manutenível</strong> e <strong>escalável</strong>.
+</p>
+
+<p>
+Boas práticas e Clean Code são um conjunto de princípios que tornam o código
+mais fácil de entender, modificar e evoluir ao longo do tempo.
+</p>
+
+<div class="conceito">
+<strong>Conceito-chave:</strong><br>
+Clean Code é escrever código que outras pessoas (e você no futuro) consigam
+entender facilmente.
+</div>
+
+<h2>2️⃣ Princípios Fundamentais de Clean Code</h2>
+
+<ul>
+  <li>Nomes claros e descritivos</li>
+  <li>Funções pequenas e objetivas</li>
+  <li>Evitar duplicação de código</li>
+  <li>Organização em módulos</li>
+  <li>Comentários apenas quando necessário</li>
+</ul>
+
+<h2>3️⃣ Exemplos Práticos</h2>
+
+<div class="exemplo">
+<h3>❌ Código ruim</h3>
+<pre><code>
+def f(a,b):
+    return a+b
+</code></pre>
+</div>
+
+<div class="exemplo">
+<h3>✅ Código limpo</h3>
+<pre><code>
+def somar_dois_numeros(numero1, numero2):
+    return numero1 + numero2
+</code></pre>
+<p>
+Nomes claros tornam o código autoexplicativo.
+</p>
+</div>
+
+<h2>4️⃣ Organização de Projetos Python</h2>
+
+<p>
+Projetos profissionais seguem uma estrutura organizada:
+</p>
+
+<pre><code>
+projeto/
+ ├── app/
+ │   ├── main.py
+ │   ├── models.py
+ │   ├── services.py
+ │   └── routes.py
+ ├── tests/
+ ├── requirements.txt
+ └── README.md
+</code></pre>
+
+<h2>5️⃣ Comentários e Documentação</h2>
+
+<p>
+Bons códigos precisam de poucos comentários, pois são autoexplicativos.
+Quando necessário, utilize <strong>docstrings</strong>.
+</p>
+
+<div class="exemplo">
+<pre><code>
+def calcular_media(valores):
+    """
+    Calcula a média de uma lista de números.
+    """
+    return sum(valores) / len(valores)
+</code></pre>
+</div>
+
+<h2>6️⃣ Testes de Conhecimento</h2>
+
+<div class="teste">
+<p><strong>Teste 1:</strong> O que é Clean Code?</p>
+<p><strong>Teste 2:</strong> Por que nomes claros são importantes?</p>
+<p><strong>Teste 3:</strong> Onde a lógica deve ficar em projetos grandes?</p>
+</div>
+
+<h2>7️⃣ Desafios</h2>
+
+<div class="desafio">
+<p><strong>Desafio 1 (Iniciante):</strong> Refatore uma função com nomes ruins.</p>
+<p><strong>Desafio 2 (Intermediário):</strong> Organize um projeto desestruturado.</p>
+<p><strong>Desafio 3 (Avançado):</strong> Separe regras de negócio de rotas da API.</p>
+</div>
+
+<h2>8️⃣ Resolução dos Testes</h2>
+
+<div class="resolucao">
+<p><strong>Teste 1:</strong> Práticas para escrever código legível e manutenível.</p>
+<p><strong>Teste 2:</strong> Facilitam leitura e manutenção.</p>
+<p><strong>Teste 3:</strong> Em serviços ou camadas específicas.</p>
+</div>
+
+<h2>9️⃣ Conclusão da Aula</h2>
+
+<p>
+Neste dia, você aprendeu como escrever código profissional, organizado e limpo.
+Esses princípios são fundamentais para trabalhar em equipe, evoluir projetos
+e se destacar como desenvolvedor.
+</p>
+
+<footer>
+  <a href="../../dashboard.html">⬅ Voltar ao Dashboard</a>
+</footer>
+
+</main>
+
+<script src="../../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula 25 – Frontend Consumindo API</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #fff;
+      padding: 28px;
+      text-align: center;
+    }
+    main {
+      max-width: 920px;
+      margin: auto;
+      background: #ffffff;
+      padding: 36px;
+    }
+    h1, h2, h3 { color: #1e293b; }
+    h2 {
+      margin-top: 48px;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 8px;
+    }
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 18px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    button {
+      padding: 10px 16px;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover { background: #1d4ed8; }
+
+    .conceito, .exemplo, .teste, .desafio, .resolucao {
+      padding: 18px;
+      margin: 28px 0;
+      border-left: 5px solid;
+    }
+    .conceito { background: #eef2ff; border-color: #6366f1; }
+    .exemplo { background: #f8fafc; border-color: #0ea5e9; }
+    .teste { background: #ecfeff; border-color: #06b6d4; }
+    .desafio { background: #fff7ed; border-color: #f97316; }
+    .resolucao { background: #f0fdf4; border-color: #22c55e; }
+
+    footer { text-align: center; margin: 60px 0 20px; }
+    a { color: #2563eb; font-weight: bold; text-decoration: none; }
+  </style>
+</head>
+
+<body onload="proteger()">
+
+<header>
+  <h1>Dia 25 – Frontend Consumindo API</h1>
+  <p>Curso Python em 30 Dias</p>
+</header>
+
+<main>
+
+<h2>1️⃣ Introdução Conceitual</h2>
+
+<p>
+Criar uma API é apenas metade do caminho. Para que usuários interajam com o
+sistema, precisamos de um <strong>frontend</strong> que consuma essa API,
+exiba dados e envie informações.
+</p>
+
+<p>
+Neste dia, você aprenderá como usar <strong>HTML</strong> e
+<strong>JavaScript</strong> para se comunicar com uma API Python criada
+com FastAPI.
+</p>
+
+<div class="conceito">
+<strong>Conceito-chave:</strong><br>
+O frontend consome a API através de requisições HTTP feitas com JavaScript.
+</div>
+
+<h2>2️⃣ Comunicação Frontend ↔ Backend</h2>
+
+<p>
+No JavaScript moderno, utilizamos a função <code>fetch()</code> para fazer
+requisições HTTP para APIs.
+</p>
+
+<ul>
+  <li>Buscar dados (GET)</li>
+  <li>Enviar dados (POST)</li>
+  <li>Atualizar dados (PUT)</li>
+  <li>Excluir dados (DELETE)</li>
+</ul>
+
+<h2>3️⃣ Exemplo Prático – Consumindo API</h2>
+
+<div class="exemplo">
+<h3>Exemplo 1 – HTML básico</h3>
+<pre><code>
+&lt;button onclick="carregarUsuarios()"&gt;Carregar Usuários&lt;/button&gt;
+&lt;ul id="lista"&gt;&lt;/ul&gt;
+</code></pre>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 2 – JavaScript com fetch()</h3>
+<pre><code>
+function carregarUsuarios() {
+  fetch("http://127.0.0.1:8000/usuarios")
+    .then(resposta =&gt; resposta.json())
+    .then(dados =&gt; {
+      const lista = document.getElementById("lista");
+      lista.innerHTML = "";
+      dados.forEach(u =&gt; {
+        const li = document.createElement("li");
+        li.textContent = u;
+        lista.appendChild(li);
+      });
+    });
+}
+</code></pre>
+<p>
+Esse código busca dados da API e exibe no HTML.
+</p>
+</div>
+
+<h2>4️⃣ Enviando Dados para a API</h2>
+
+<div class="exemplo">
+<pre><code>
+fetch("http://127.0.0.1:8000/usuarios", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    nome: "Germano",
+    email: "email@email.com"
+  })
+})
+</code></pre>
+<p>
+Aqui enviamos dados do frontend para o backend.
+</p>
+</div>
+
+<h2>5️⃣ Testes de Conhecimento</h2>
+
+<div class="teste">
+<p><strong>Teste 1:</strong> O que é o fetch?</p>
+<p><strong>Teste 2:</strong> Qual método HTTP usamos para buscar dados?</p>
+<p><strong>Teste 3:</strong> Por que usamos JSON?</p>
+</div>
+
+<h2>6️⃣ Desafios</h2>
+
+<div class="desafio">
+<p><strong>Desafio 1 (Iniciante):</strong> Crie um botão que busque dados da API.</p>
+<p><strong>Desafio 2 (Intermediário):</strong> Envie dados de um formulário para a API.</p>
+<p><strong>Desafio 3 (Avançado):</strong> Exiba mensagens de erro da API no frontend.</p>
+</div>
+
+<h2>7️⃣ Resolução dos Testes</h2>
+
+<div class="resolucao">
+<p><strong>Teste 1:</strong> Função JavaScript para requisições HTTP.</p>
+<p><strong>Teste 2:</strong> GET.</p>
+<p><strong>Teste 3:</strong> Formato padrão para troca de dados.</p>
+</div>
+
+<h2>8️⃣ Conclusão da Aula</h2>
+
+<p>
+Neste dia, você conectou o frontend ao backend, consumindo uma API real com
+JavaScript. Esse é um passo essencial para criar sistemas web completos,
+dashboards, plataformas EAD e aplicações modernas.
+</p>
+
+<footer>
+  <a href="../../dashboard.html">⬅ Voltar ao Dashboard</a>
+</footer>
+
+</main>
+
+<script src="../../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula 15 – Manipulação de Arquivos em Python</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #fff;
+      padding: 28px;
+      text-align: center;
+    }
+    main {
+      max-width: 920px;
+      margin: auto;
+      background: #ffffff;
+      padding: 36px;
+    }
+    h1, h2, h3 { color: #1e293b; }
+    h2 { margin-top: 48px; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; }
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 18px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    .conceito, .exemplo, .teste, .desafio, .resolucao {
+      padding: 18px;
+      margin: 28px 0;
+      border-left: 5px solid;
+    }
+    .conceito { background: #eef2ff; border-color: #6366f1; }
+    .exemplo { background: #f8fafc; border-color: #0ea5e9; }
+    .teste { background: #ecfeff; border-color: #06b6d4; }
+    .desafio { background: #fff7ed; border-color: #f97316; }
+    .resolucao { background: #f0fdf4; border-color: #22c55e; }
+    footer { text-align: center; margin: 60px 0 20px; }
+    a { color: #2563eb; font-weight: bold; text-decoration: none; }
+  </style>
+</head>
+
+<body onload="proteger()">
+
+<header>
+  <h1>Dia 15 – Manipulação de Arquivos em Python</h1>
+  <p>Curso Python em 30 Dias</p>
+</header>
+
+<main>
+
+<h2>1️⃣ Introdução Conceitual</h2>
+
+<p>
+Até este ponto do curso, todos os dados utilizados pelos programas existiam
+apenas enquanto o código estava em execução. Assim que o programa era encerrado,
+todas as informações eram perdidas. Em aplicações reais, isso não é suficiente.
+</p>
+
+<p>
+Para que dados sejam mantidos entre execuções, é necessário armazená-los de forma
+permanente. Uma das formas mais simples de persistência de dados é através de
+<strong>arquivos</strong>. Python oferece ferramentas poderosas e simples para
+ler e escrever arquivos.
+</p>
+
+<div class="conceito">
+<strong>Conceito-chave:</strong><br>
+Manipulação de arquivos permite salvar e recuperar dados de forma permanente
+no sistema de arquivos.
+</div>
+
+<h2>2️⃣ Explicação Técnica Detalhada</h2>
+
+<p>
+Em Python, a função principal para trabalhar com arquivos é <code>open()</code>.
+Ela permite abrir um arquivo em diferentes modos:
+</p>
+
+<ul>
+  <li><code>"r"</code> – leitura (read)</li>
+  <li><code>"w"</code> – escrita (write)</li>
+  <li><code>"a"</code> – adicionar conteúdo (append)</li>
+</ul>
+
+<p>
+Sempre que abrimos um arquivo, é fundamental fechá-lo após o uso. A forma mais
+segura de trabalhar com arquivos é utilizando a estrutura <code>with</code>,
+que garante o fechamento automático.
+</p>
+
+<h2>3️⃣ Exemplos Práticos (do básico ao avançado)</h2>
+
+<div class="exemplo">
+<h3>Exemplo 1 – Escrevendo em um arquivo</h3>
+<pre><code>
+with open("dados.txt", "w") as arquivo:
+    arquivo.write("Olá, Python!")
+</code></pre>
+<p>
+Este código cria um arquivo (ou sobrescreve, se já existir) e grava um texto.
+</p>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 2 – Lendo um arquivo</h3>
+<pre><code>
+with open("dados.txt", "r") as arquivo:
+    conteudo = arquivo.read()
+    print(conteudo)
+</code></pre>
+<p>
+Aqui o conteúdo do arquivo é lido e exibido no terminal.
+</p>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 3 – Adicionando conteúdo</h3>
+<pre><code>
+with open("dados.txt", "a") as arquivo:
+    arquivo.write("\nNova linha adicionada")
+</code></pre>
+<p>
+O modo <code>"a"</code> adiciona conteúdo ao final do arquivo sem apagar o existente.
+</p>
+</div>
+
+<h2>4️⃣ Testes de Conhecimento</h2>
+
+<div class="teste">
+<p><strong>Teste 1:</strong> Para que serve a função <code>open()</code>?</p>
+<p><strong>Teste 2:</strong> Qual a diferença entre os modos <code>"w"</code> e <code>"a"</code>?</p>
+<p><strong>Teste 3:</strong> Por que usar <code>with</code> ao manipular arquivos?</p>
+</div>
+
+<h2>5️⃣ Desafios</h2>
+
+<div class="desafio">
+<p><strong>Desafio 1 (Iniciante):</strong> Crie um arquivo e escreva seu nome nele.</p>
+<p><strong>Desafio 2 (Intermediário):</strong> Leia o conteúdo de um arquivo e exiba na tela.</p>
+<p><strong>Desafio 3 (Avançado):</strong> Crie um programa que registre várias entradas em um arquivo.</p>
+</div>
+
+<h2>6️⃣ Resolução dos Testes</h2>
+
+<div class="resolucao">
+<p><strong>Teste 1:</strong> Para abrir arquivos para leitura ou escrita.</p>
+<p><strong>Teste 2:</strong> <code>"w"</code> sobrescreve o arquivo, <code>"a"</code> adiciona conteúdo.</p>
+<p><strong>Teste 3:</strong> Para garantir que o arquivo seja fechado corretamente.</p>
+</div>
+
+<h2>7️⃣ Resolução dos Desafios</h2>
+
+<div class="resolucao">
+<pre><code>
+# Desafio 1
+with open("nome.txt", "w") as f:
+    f.write("Germano")
+
+# Desafio 2
+with open("nome.txt", "r") as f:
+    print(f.read())
+
+# Desafio 3
+with open("log.txt", "a") as f:
+    f.write("Registro salvo\n")
+</code></pre>
+</div>
+
+<h2>8️⃣ Conclusão da Aula</h2>
+
+<p>
+Neste dia, você aprendeu como criar, ler e modificar arquivos usando Python.
+Esse conhecimento é essencial para salvar dados, gerar relatórios, trabalhar
+com logs e preparar o terreno para o uso de arquivos estruturados, como CSV e
+JSON, que veremos nos próximos dias.
+</p>
+
+<footer>
+  <a href="../../dashboard.html">⬅ Voltar ao Dashboard</a>
+</footer>
+
+</main>
+
+<script src="../../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula 27 – Deploy de Aplicações Python</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #fff;
+      padding: 28px;
+      text-align: center;
+    }
+    main {
+      max-width: 920px;
+      margin: auto;
+      background: #ffffff;
+      padding: 36px;
+    }
+    h1, h2, h3 { color: #1e293b; }
+    h2 {
+      margin-top: 48px;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 8px;
+    }
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 18px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    .conceito, .exemplo, .teste, .desafio, .resolucao {
+      padding: 18px;
+      margin: 28px 0;
+      border-left: 5px solid;
+    }
+    .conceito { background: #eef2ff; border-color: #6366f1; }
+    .exemplo { background: #f8fafc; border-color: #0ea5e9; }
+    .teste { background: #ecfeff; border-color: #06b6d4; }
+    .desafio { background: #fff7ed; border-color: #f97316; }
+    .resolucao { background: #f0fdf4; border-color: #22c55e; }
+
+    footer { text-align: center; margin: 60px 0 20px; }
+    a { color: #2563eb; font-weight: bold; text-decoration: none; }
+  </style>
+</head>
+
+<body onload="proteger()">
+
+<header>
+  <h1>Dia 27 – Deploy de Aplicações Python</h1>
+  <p>Curso Python em 30 Dias</p>
+</header>
+
+<main>
+
+<h2>1️⃣ Introdução Conceitual</h2>
+
+<p>
+Criar uma aplicação funcionando localmente é apenas o começo.
+Para que outras pessoas possam acessar seu sistema, ele precisa estar
+disponível na internet. Esse processo é chamado de <strong>deploy</strong>.
+</p>
+
+<p>
+Deploy é o ato de publicar sua aplicação em um servidor, permitindo
+acesso remoto, escalabilidade e uso real em produção.
+</p>
+
+<div class="conceito">
+<strong>Conceito-chave:</strong><br>
+Deploy é o processo de disponibilizar uma aplicação para uso público.
+</div>
+
+<h2>2️⃣ Tipos de Deploy</h2>
+
+<ul>
+  <li><strong>Local</strong> – Apenas para testes</li>
+  <li><strong>Servidor VPS</strong> – Controle total</li>
+  <li><strong>Plataformas Cloud</strong> – Simplicidade e escala</li>
+</ul>
+
+<p>
+Neste curso, focamos no conceito e nos passos universais, que funcionam
+em qualquer plataforma moderna.
+</p>
+
+<h2>3️⃣ Preparando o Projeto para Deploy</h2>
+
+<div class="exemplo">
+<h3>Passo 1 – Arquivo requirements.txt</h3>
+<pre><code>
+fastapi
+uvicorn
+python-jose
+passlib[bcrypt]
+</code></pre>
+</div>
+
+<div class="exemplo">
+<h3>Passo 2 – Estrutura do projeto</h3>
+<pre><code>
+backend/
+ ├── main.py
+ ├── database.py
+ ├── auth.py
+ └── requirements.txt
+</code></pre>
+</div>
+
+<h2>4️⃣ Executando em Produção</h2>
+
+<div class="exemplo">
+<pre><code>
+uvicorn main:app --host 0.0.0.0 --port 8000
+</code></pre>
+<p>
+O parâmetro <code>0.0.0.0</code> permite acesso externo à aplicação.
+</p>
+</div>
+
+<h2>5️⃣ Deploy do Frontend</h2>
+
+<p>
+O frontend pode ser hospedado como arquivos estáticos:
+</p>
+
+<ul>
+  <li>GitHub Pages</li>
+  <li>Vercel</li>
+  <li>Netlify</li>
+</ul>
+
+<div class="exemplo">
+<pre><code>
+fetch("https://sua-api.com/usuarios")
+</code></pre>
+</div>
+
+<h2>6️⃣ Testes de Conhecimento</h2>
+
+<div class="teste">
+<p><strong>Teste 1:</strong> O que é deploy?</p>
+<p><strong>Teste 2:</strong> Por que usar <code>0.0.0.0</code>?</p>
+<p><strong>Teste 3:</strong> Onde o frontend pode ser hospedado?</p>
+</div>
+
+<h2>7️⃣ Desafios</h2>
+
+<div class="desafio">
+<p><strong>Desafio 1 (Iniciante):</strong> Gere o arquivo <code>requirements.txt</code>.</p>
+<p><strong>Desafio 2 (Intermediário):</strong> Suba a API em um servidor.</p>
+<p><strong>Desafio 3 (Avançado):</strong> Conecte frontend hospedado com API online.</p>
+</div>
+
+<h2>8️⃣ Resolução dos Testes</h2>
+
+<div class="resolucao">
+<p><strong>Teste 1:</strong> Publicar uma aplicação para acesso externo.</p>
+<p><strong>Teste 2:</strong> Permitir conexões externas.</p>
+<p><strong>Teste 3:</strong> GitHub Pages, Vercel, Netlify.</p>
+</div>
+
+<h2>9️⃣ Conclusão da Aula</h2>
+
+<p>
+Neste dia, você aprendeu os fundamentos do deploy de aplicações Python,
+entendendo como preparar, executar e publicar sistemas reais.
+Esse conhecimento é essencial para transformar projetos em produtos.
+</p>
+
+<footer>
+  <a href="../../dashboard.html">⬅ Voltar ao Dashboard</a>
+</footer>
+
+</main>
+
+<script src="../../script.js"></script>
+</body>
+</html>

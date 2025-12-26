@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula 28 – Testes Automatizados em Python</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #fff;
+      padding: 28px;
+      text-align: center;
+    }
+    main {
+      max-width: 920px;
+      margin: auto;
+      background: #ffffff;
+      padding: 36px;
+    }
+    h1, h2, h3 { color: #1e293b; }
+    h2 {
+      margin-top: 48px;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 8px;
+    }
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 18px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    .conceito, .exemplo, .teste, .desafio, .resolucao {
+      padding: 18px;
+      margin: 28px 0;
+      border-left: 5px solid;
+    }
+    .conceito { background: #eef2ff; border-color: #6366f1; }
+    .exemplo { background: #f8fafc; border-color: #0ea5e9; }
+    .teste { background: #ecfeff; border-color: #06b6d4; }
+    .desafio { background: #fff7ed; border-color: #f97316; }
+    .resolucao { background: #f0fdf4; border-color: #22c55e; }
+
+    footer { text-align: center; margin: 60px 0 20px; }
+    a { color: #2563eb; font-weight: bold; text-decoration: none; }
+  </style>
+</head>
+
+<body onload="proteger()">
+
+<header>
+  <h1>Dia 28 – Testes Automatizados em Python</h1>
+  <p>Curso Python em 30 Dias</p>
+</header>
+
+<main>
+
+<h2>1️⃣ Introdução Conceitual</h2>
+
+<p>
+À medida que aplicações crescem, testar manualmente cada funcionalidade se torna
+impraticável e sujeito a erros. Para garantir qualidade, estabilidade e
+confiabilidade, utilizamos <strong>testes automatizados</strong>.
+</p>
+
+<p>
+Testes automatizados permitem validar automaticamente se o código continua
+funcionando corretamente após alterações, evitando regressões.
+</p>
+
+<div class="conceito">
+<strong>Conceito-chave:</strong><br>
+Testes automatizados verificam automaticamente se o código funciona como esperado.
+</div>
+
+<h2>2️⃣ Tipos de Testes</h2>
+
+<ul>
+  <li><strong>Teste unitário</strong> – testa pequenas partes do código</li>
+  <li><strong>Teste de integração</strong> – testa a integração entre módulos</li>
+  <li><strong>Teste de sistema</strong> – testa o sistema completo</li>
+</ul>
+
+<p>
+Neste curso, focamos principalmente em <strong>testes unitários</strong>.
+</p>
+
+<h2>3️⃣ Ferramentas de Teste em Python</h2>
+
+<p>
+Python possui ferramentas nativas e bibliotecas externas para testes:
+</p>
+
+<ul>
+  <li><code>unittest</code> – biblioteca padrão do Python</li>
+  <li><code>pytest</code> – biblioteca moderna e muito utilizada</li>
+</ul>
+
+<h2>4️⃣ Exemplo Prático com unittest</h2>
+
+<div class="exemplo">
+<h3>Função a ser testada</h3>
+<pre><code>
+def soma(a, b):
+    return a + b
+</code></pre>
+</div>
+
+<div class="exemplo">
+<h3>Teste unitário</h3>
+<pre><code>
+import unittest
+from calculos import soma
+
+class TestCalculos(unittest.TestCase):
+    def test_soma(self):
+        self.assertEqual(soma(2, 3), 5)
+
+if __name__ == "__main__":
+    unittest.main()
+</code></pre>
+<p>
+O teste verifica automaticamente se a função retorna o valor correto.
+</p>
+</div>
+
+<h2>5️⃣ Executando os Testes</h2>
+
+<div class="exemplo">
+<pre><code>
+python -m unittest
+</code></pre>
+</div>
+
+<p>
+Se tudo estiver correto, o teste passa. Caso contrário, o erro é exibido.
+</p>
+
+<h2>6️⃣ Testes de Conhecimento</h2>
+
+<div class="teste">
+<p><strong>Teste 1:</strong> Por que usar testes automatizados?</p>
+<p><strong>Teste 2:</strong> O que é um teste unitário?</p>
+<p><strong>Teste 3:</strong> Qual biblioteca de testes vem com o Python?</p>
+</div>
+
+<h2>7️⃣ Desafios</h2>
+
+<div class="desafio">
+<p><strong>Desafio 1 (Iniciante):</strong> Crie um teste para uma função de subtração.</p>
+<p><strong>Desafio 2 (Intermediário):</strong> Teste uma função que valida login.</p>
+<p><strong>Desafio 3 (Avançado):</strong> Crie testes para rotas da API.</p>
+</div>
+
+<h2>8️⃣ Resolução dos Testes</h2>
+
+<div class="resolucao">
+<p><strong>Teste 1:</strong> Para garantir que o código continue funcionando.</p>
+<p><strong>Teste 2:</strong> Testa uma pequena parte isolada do código.</p>
+<p><strong>Teste 3:</strong> <code>unittest</code>.</p>
+</div>
+
+<h2>9️⃣ Conclusão da Aula</h2>
+
+<p>
+Neste dia, você aprendeu a importância dos testes automatizados e como utilizá-los
+em Python. Esse conhecimento é fundamental para escrever código profissional,
+confiável e preparado para crescer.
+</p>
+
+<footer>
+  <a href="../../dashboard.html">⬅ Voltar ao Dashboard</a>
+</footer>
+
+</main>
+
+<script src="../../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula 20 – Projeto Prático: Sistema de Cadastro</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #fff;
+      padding: 28px;
+      text-align: center;
+    }
+    main {
+      max-width: 920px;
+      margin: auto;
+      background: #ffffff;
+      padding: 36px;
+    }
+    h1, h2, h3 { color: #1e293b; }
+    h2 { margin-top: 48px; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; }
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 18px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    .conceito, .exemplo, .teste, .desafio, .resolucao {
+      padding: 18px;
+      margin: 28px 0;
+      border-left: 5px solid;
+    }
+    .conceito { background: #eef2ff; border-color: #6366f1; }
+    .exemplo { background: #f8fafc; border-color: #0ea5e9; }
+    .teste { background: #ecfeff; border-color: #06b6d4; }
+    .desafio { background: #fff7ed; border-color: #f97316; }
+    .resolucao { background: #f0fdf4; border-color: #22c55e; }
+    footer { text-align: center; margin: 60px 0 20px; }
+    a { color: #2563eb; font-weight: bold; text-decoration: none; }
+  </style>
+</head>
+
+<body onload="proteger()">
+
+<header>
+  <h1>Dia 20 – Projeto Prático: Sistema de Cadastro</h1>
+  <p>Curso Python em 30 Dias</p>
+</header>
+
+<main>
+
+<h2>1️⃣ Visão Geral do Projeto</h2>
+
+<p>
+A partir deste ponto, começamos a construir aplicações completas.
+Neste projeto, você irá desenvolver um <strong>sistema de cadastro</strong>,
+utilizando tudo o que foi aprendido até agora: variáveis, estruturas de dados,
+funções, arquivos, tratamento de erros e Programação Orientada a Objetos.
+</p>
+
+<p>
+Este sistema será a base para evoluções futuras, como autenticação,
+banco de dados e aplicações web.
+</p>
+
+<div class="conceito">
+<strong>Objetivo do projeto:</strong><br>
+Criar um sistema capaz de cadastrar, listar e salvar usuários em arquivo.
+</div>
+
+<h2>2️⃣ Estrutura do Sistema</h2>
+
+<p>
+O sistema será dividido logicamente em:
+</p>
+
+<ul>
+  <li>Classe para representar o usuário</li>
+  <li>Funções para cadastrar e listar usuários</li>
+  <li>Persistência em arquivo (JSON)</li>
+  <li>Menu interativo</li>
+</ul>
+
+<h2>3️⃣ Implementação Passo a Passo</h2>
+
+<div class="exemplo">
+<h3>Passo 1 – Classe Usuario</h3>
+<pre><code>
+class Usuario:
+    def __init__(self, nome, email):
+        self.nome = nome
+        self.email = email
+
+    def to_dict(self):
+        return {
+            "nome": self.nome,
+            "email": self.email
+        }
+</code></pre>
+</div>
+
+<div class="exemplo">
+<h3>Passo 2 – Salvando usuários em arquivo</h3>
+<pre><code>
+import json
+
+def salvar_usuario(usuario):
+    try:
+        with open("usuarios.json", "r") as f:
+            usuarios = json.load(f)
+    except:
+        usuarios = []
+
+    usuarios.append(usuario.to_dict())
+
+    with open("usuarios.json", "w") as f:
+        json.dump(usuarios, f, indent=4)
+</code></pre>
+</div>
+
+<div class="exemplo">
+<h3>Passo 3 – Listando usuários</h3>
+<pre><code>
+def listar_usuarios():
+    try:
+        with open("usuarios.json", "r") as f:
+            usuarios = json.load(f)
+            for u in usuarios:
+                print(u["nome"], "-", u["email"])
+    except:
+        print("Nenhum usuário cadastrado.")
+</code></pre>
+</div>
+
+<div class="exemplo">
+<h3>Passo 4 – Menu principal</h3>
+<pre><code>
+while True:
+    print("1 - Cadastrar")
+    print("2 - Listar")
+    print("0 - Sair")
+
+    opcao = input("Escolha: ")
+
+    if opcao == "1":
+        nome = input("Nome: ")
+        email = input("Email: ")
+        usuario = Usuario(nome, email)
+        salvar_usuario(usuario)
+
+    elif opcao == "2":
+        listar_usuarios()
+
+    elif opcao == "0":
+        break
+</code></pre>
+</div>
+
+<h2>4️⃣ Testes de Conhecimento</h2>
+
+<div class="teste">
+<p><strong>Teste 1:</strong> Qual o papel da classe Usuario?</p>
+<p><strong>Teste 2:</strong> Por que usamos JSON neste projeto?</p>
+<p><strong>Teste 3:</strong> Qual a função do menu?</p>
+</div>
+
+<h2>5️⃣ Desafios</h2>
+
+<div class="desafio">
+<p><strong>Desafio 1 (Iniciante):</strong> Adicione um campo telefone ao cadastro.</p>
+<p><strong>Desafio 2 (Intermediário):</strong> Permita excluir usuários.</p>
+<p><strong>Desafio 3 (Avançado):</strong> Impeça cadastro de emails duplicados.</p>
+</div>
+
+<h2>6️⃣ Resolução dos Testes</h2>
+
+<div class="resolucao">
+<p><strong>Teste 1:</strong> Representar e organizar os dados do usuário.</p>
+<p><strong>Teste 2:</strong> Para persistir dados de forma estruturada.</p>
+<p><strong>Teste 3:</strong> Controlar o fluxo do sistema.</p>
+</div>
+
+<h2>7️⃣ Resolução dos Desafios (Exemplo)</h2>
+
+<div class="resolucao">
+<pre><code>
+# Exemplo simples de verificação de email duplicado
+emails = [u["email"] for u in usuarios]
+if email in emails:
+    print("Email já cadastrado.")
+</code></pre>
+</div>
+
+<h2>8️⃣ Conclusão da Aula</h2>
+
+<p>
+Neste dia, você construiu um sistema completo de cadastro em Python,
+aplicando diversos conceitos aprendidos ao longo do curso. Esse projeto
+marca a transição entre aprendizado isolado e desenvolvimento real.
+</p>
+
+<footer>
+  <a href="../../dashboard.html">⬅ Voltar ao Dashboard</a>
+</footer>
+
+</main>
+
+<script src="../../script.js"></script>
+</body>
+</html>

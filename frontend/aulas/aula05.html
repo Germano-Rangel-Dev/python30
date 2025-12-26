@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula 05 – Tipos de Dados em Python</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #fff;
+      padding: 28px;
+      text-align: center;
+    }
+    main {
+      max-width: 920px;
+      margin: auto;
+      background: #ffffff;
+      padding: 36px;
+    }
+    h1, h2, h3 { color: #1e293b; }
+    h2 { margin-top: 48px; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; }
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 18px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    .conceito, .exemplo, .teste, .desafio, .resolucao {
+      padding: 18px;
+      margin: 28px 0;
+      border-left: 5px solid;
+    }
+    .conceito { background: #eef2ff; border-color: #6366f1; }
+    .exemplo { background: #f8fafc; border-color: #0ea5e9; }
+    .teste { background: #ecfeff; border-color: #06b6d4; }
+    .desafio { background: #fff7ed; border-color: #f97316; }
+    .resolucao { background: #f0fdf4; border-color: #22c55e; }
+    footer { text-align: center; margin: 60px 0 20px; }
+    a { color: #2563eb; font-weight: bold; text-decoration: none; }
+  </style>
+</head>
+
+<body onload="proteger()">
+
+<header>
+  <h1>Dia 05 – Tipos de Dados em Python</h1>
+  <p>Curso Python em 30 Dias</p>
+</header>
+
+<main>
+
+<h2>1️⃣ Introdução Conceitual</h2>
+
+<p>
+Em programação, não basta apenas armazenar valores em variáveis. É necessário
+entender <strong>que tipo de informação</strong> cada valor representa.
+Os tipos de dados definem como o Python interpreta, armazena e manipula
+essas informações.
+</p>
+
+<p>
+Compreender tipos de dados é essencial para evitar erros, escrever códigos
+mais claros e realizar operações corretamente. Um número, um texto e um
+valor lógico se comportam de maneiras completamente diferentes.
+</p>
+
+<div class="conceito">
+<strong>Conceito-chave:</strong><br>
+Tipo de dado é a classificação do valor armazenado em uma variável,
+determinando quais operações podem ser realizadas sobre ele.
+</div>
+
+<h2>2️⃣ Explicação Técnica Detalhada</h2>
+
+<p>
+Python possui diversos tipos de dados nativos. Os principais para iniciantes são:
+</p>
+
+<ul>
+  <li><strong>int</strong> – números inteiros</li>
+  <li><strong>float</strong> – números decimais</li>
+  <li><strong>str</strong> – textos</li>
+  <li><strong>bool</strong> – valores lógicos (True ou False)</li>
+</ul>
+
+<p>
+Python identifica automaticamente o tipo de dado no momento da atribuição.
+Você pode verificar o tipo de qualquer valor usando a função <code>type()</code>.
+</p>
+
+<h2>3️⃣ Exemplos Práticos (do básico ao avançado)</h2>
+
+<div class="exemplo">
+<h3>Exemplo 1 – Tipos básicos</h3>
+<pre><code>
+idade = 30        # int
+altura = 1.75    # float
+nome = "Germano" # str
+ativo = True     # bool
+
+print(type(idade))
+print(type(altura))
+print(type(nome))
+print(type(ativo))
+</code></pre>
+<p>
+Este exemplo mostra como o Python identifica automaticamente o tipo
+de cada variável.
+</p>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 2 – Operações com tipos numéricos</h3>
+<pre><code>
+a = 10
+b = 3
+
+print(a + b)
+print(a / b)
+print(type(a / b))
+</code></pre>
+<p>
+Mesmo dividindo dois inteiros, o resultado é um número decimal
+(<code>float</code>).
+</p>
+</div>
+
+<div class="exemplo">
+<h3>Exemplo 3 – Combinação de texto e números</h3>
+<pre><code>
+idade = 30
+print("Idade:", idade)
+</code></pre>
+<p>
+Python permite combinar texto e números no <code>print</code>,
+desde que cada elemento esteja separado por vírgula ou formatado corretamente.
+</p>
+</div>
+
+<h2>4️⃣ Testes de Conhecimento</h2>
+
+<div class="teste">
+<p><strong>Teste 1:</strong> O que é um tipo de dado?</p>
+<p><strong>Teste 2:</strong> Qual a diferença entre <code>int</code> e <code>float</code>?</p>
+<p><strong>Teste 3:</strong> Para que serve a função <code>type()</code>?</p>
+</div>
+
+<h2>5️⃣ Desafios</h2>
+
+<div class="desafio">
+<p><strong>Desafio 1 (Iniciante):</strong> Crie uma variável para nome e outra para idade.</p>
+<p><strong>Desafio 2 (Intermediário):</strong> Crie duas variáveis numéricas e mostre o tipo do resultado da divisão.</p>
+<p><strong>Desafio 3 (Avançado):</strong> Crie um programa que mostre o tipo de cada variável criada.</p>
+</div>
+
+<h2>6️⃣ Resolução dos Testes</h2>
+
+<div class="resolucao">
+<p><strong>Teste 1:</strong> É a classificação do valor armazenado em uma variável.</p>
+<p><strong>Teste 2:</strong> <code>int</code> representa números inteiros e <code>float</code> números decimais.</p>
+<p><strong>Teste 3:</strong> A função <code>type()</code> mostra o tipo de um valor ou variável.</p>
+</div>
+
+<h2>7️⃣ Resolução dos Desafios</h2>
+
+<div class="resolucao">
+<pre><code>
+# Desafio 1
+nome = "Germano"
+idade = 30
+
+# Desafio 2
+a = 10
+b = 3
+resultado = a / b
+print(type(resultado))
+
+# Desafio 3
+print(type(nome))
+print(type(idade))
+print(type(resultado))
+</code></pre>
+</div>
+
+<h2>8️⃣ Conclusão da Aula</h2>
+
+<p>
+Neste dia, você aprendeu o que são tipos de dados, quais são os principais tipos
+em Python e como identificá-los. Esse conhecimento é fundamental para realizar
+operações corretas, evitar erros e avançar para entrada de dados e operadores
+matemáticos.
+</p>
+
+<footer>
+  <a href="../../dashboard.html">⬅ Voltar ao Dashboard</a>
+</footer>
+
+</main>
+
+<script src="../../script.js"></script>
+</body>
+</html>
