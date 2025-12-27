@@ -1,8 +1,21 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, Depends, HTTPException
 from pydantic import BaseModel
+from pathlib import Path
 import sqlite3
 import hashlib
+from certificado import gerar_certificado
+from auth import (
+    verificar_token,
+    verificar_admin,
+    criar_token,
+    gerar_hash_senha,
+    verificar_senha
+)
+
+
+
 
 app = FastAPI()
 
@@ -68,3 +81,65 @@ def login(dados: Dados):
     if aluno:
         return {"ok": True}
     return {"ok": False}
+
+app = FastAPI()
+
+PDF_DIR = Path("../frontend/pdfs")
+
+@app.get("/pdf/{dia}")
+def baixar_pdf(dia: int, usuario=Depends(verificar_token)):
+    if dia > usuario["dia_liberado"]:
+        raise HTTPException(status_code=403, detail="PDF não liberado")
+
+    arquivo = PDF_DIR / f"aula{str(dia).zfill(2)}.pdf"
+
+    if not arquivo.exists():
+        raise HTTPException(status_code=404, detail="PDF não encontrado")
+
+    return FileResponse(
+        arquivo,
+        media_type="application/pdf",
+        filename=arquivo.name
+    )
+
+from fastapi.responses import FileResponse
+from pathlib import Path
+
+PDF_DIR = Path("../frontend/pdfs")
+
+@app.get("/pdf/{dia}")
+def baixar_pdf(dia: int, usuario=Depends(verificar_token)):
+    if dia > usuario["dia_liberado"]:
+        raise HTTPException(status_code=403, detail="PDF não liberado")
+
+    arquivo = PDF_DIR / f"aula{str(dia).zfill(2)}.pdf"
+
+    if not arquivo.exists():
+        raise HTTPException(status_code=404, detail="PDF não encontrado")
+
+    return FileResponse(
+        arquivo,
+        media_type="application/pdf",
+        filename=arquivo.name
+    )
+
+@app.get("/admin/alunos")
+def listar_alunos(admin=Depends(verificar_admin)):
+    return [
+        {"nome": "Germano", "email": "germanotroian@gmail.com", "dia": 10},
+        {"nome": "Ana", "email": "a@email.com", "dia": 5}
+    ]
+
+
+@app.get("/certificado")
+def baixar_certificado(usuario=Depends(verificar_token)):
+    if usuario["dia_liberado"] < 30:
+        raise HTTPException(status_code=403)
+
+    pdf = gerar_certificado(usuario["nome"], usuario["id"])
+    return FileResponse(pdf)
+
+
+
+
+

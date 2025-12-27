@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>📊 Alunos</h2>
+<table id="tabela"></table>
+
+<script>
+fetch("http://127.0.0.1:8000/admin/alunos", {
+  headers: {
+    "Authorization": "Bearer " + localStorage.getItem("token")
+  }
+})
+.then(res => res.json())
+.then(alunos => {
+  const tabela = document.getElementById("tabela");
+  alunos.forEach(a => {
+    tabela.innerHTML += `
+      <tr>
+        <td>${a.nome}</td>
+        <td>${a.email}</td>
+        <td>Dia ${a.dia}</td>
+      </tr>
+    `;
+  });
+});
+</script>
+</body>
+</html>
+
+</script>

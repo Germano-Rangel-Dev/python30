@@ -70,9 +70,26 @@ function carregarVideos(dia) {
 /* ===== PDF ===== */
 function carregarPDF(dia) {
   const pdf = document.getElementById("pdfContainer");
+
   pdf.innerHTML = `
-    <a href="pdfs/aula${String(dia).padStart(2,'0')}.pdf" download>
+    <button onclick="baixarPDF(${dia})">
       📥 Baixar PDF da Aula ${dia}
-    </a>
+    </button>
   `;
+}
+
+function baixarPDF(dia) {
+  fetch(`http://127.0.0.1:8000/pdf/${dia}`, {
+    headers: {
+      "Authorization": "Bearer " + localStorage.getItem("token")
+    }
+  })
+  .then(res => res.blob())
+  .then(blob => {
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `aula${String(dia).padStart(2,'0')}.pdf`;
+    a.click();
+  });
 }
