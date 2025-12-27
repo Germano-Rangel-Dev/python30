@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.responses import FileResponse, RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
-
+from fastapi.responses import HTMLResponse
 from sqlalchemy import create_engine, Column, Integer, String, Boolean
 from sqlalchemy.orm import sessionmaker, declarative_base, Session
 
@@ -104,7 +104,7 @@ def cadastro(dados: dict, db: Session = Depends(get_db)):
 
 # ================= CONFIRMAR EMAIL =================
 
-@app.get("/confirmar-email")
+@app.get("/confirmar-email", response_class=HTMLResponse)
 def confirmar_email(token: str, db: Session = Depends(get_db)):
     try:
         token = unquote(token)
@@ -118,10 +118,12 @@ def confirmar_email(token: str, db: Session = Depends(get_db)):
         usuario.confirmado = True
         db.commit()
 
-        return RedirectResponse("http://127.0.0.1:5500/confirmado.html")
+        html_path = Path(__file__).parent / "templates" / "confirmado.html"
+        return html_path.read_text(encoding="utf-8")
 
     except JWTError:
         raise HTTPException(400, "Link inválido ou expirado")
+
 
 # ================= LOGIN =================
 

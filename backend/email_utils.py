@@ -7,7 +7,8 @@ from urllib.parse import quote
 EMAIL_REMETENTE = "rantro.dev@gmail.com"
 SENHA_EMAIL = "ujzz suon lkma dnav"
 
-URL_BACKEND = "http://127.0.0.1:8000"
+URL_BACKEND = "https://encounter-throughout-banana-resistant.trycloudflare.com"
+
 
 # ================= FUNÇÃO BASE =================
 
