@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Reenviar confirmação</h2>
+
+  <input type="email" id="email" placeholder="Seu e-mail">
+  <button onclick="reenviar()">Reenviar</button>
+
+  <p id="msg"></p>
+
+<script>
+function reenviar() {
+  fetch("http://127.0.0.1:8000/reenviar-confirmacao", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email: email.value })
+  })
+  .then(r => r.json())
+  .then(d => msg.innerText = d.msg);
+}
+</script>
+</body>
+</html>

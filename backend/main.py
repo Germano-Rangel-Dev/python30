@@ -1,13 +1,13 @@
 from fastapi import FastAPI, Depends, HTTPException, status
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
+
 from sqlalchemy import create_engine, Column, Integer, String, Boolean
 from sqlalchemy.orm import sessionmaker, declarative_base, Session
+
 from pathlib import Path
 from datetime import timedelta
 from jose import jwt, JWTError
-from database import Base, get_db
-
 
 # ===== IMPORTS DO PROJETO =====
 from auth import (
@@ -19,34 +19,43 @@ from auth import (
     SECRET_KEY,
     ALGORITHM
 )
-from email_utils import enviar_email_confirmacao
+from email_utils import (
+    enviar_email_confirmacao,
+    enviar_email_recuperacao
+)
 
 # ======================================================
-# CONFIGURAÇÃO BÁSICA
+# APP + CORS
 # ======================================================
 
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],   # em produção, restringir
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+# ======================================================
+# CAMINHOS
+# ======================================================
+
 BASE_DIR = Path(__file__).resolve().parent
 PDF_DIR = BASE_DIR.parent / "frontend" / "pdfs"
 
 # ======================================================
-# BANCO DE DADOS (SQLITE SIMPLES)
+# BANCO DE DADOS (SQLITE)
 # ======================================================
 
 DATABASE_URL = "sqlite:///./database.db"
 
 engine = create_engine(
-    DATABASE_URL, connect_args={"check_same_thread": False}
+    DATABASE_URL,
+    connect_args={"check_same_thread": False}
 )
+
 SessionLocal = sessionmaker(bind=engine)
 Base = declarative_base()
 
@@ -77,11 +86,15 @@ def get_db():
 # ROTAS
 # ======================================================
 
+# ---------- CADASTRO ----------
 @app.post("/cadastro")
 def cadastro(dados: dict, db: Session = Depends(get_db)):
     email = dados.get("email")
     nome = dados.get("nome")
     senha = dados.get("senha")
+
+    if not email or not senha or not nome:
+        raise HTTPException(status_code=400, detail="Dados incompletos")
 
     if db.query(Usuario).filter(Usuario.email == email).first():
         raise HTTPException(status_code=400, detail="E-mail já cadastrado")
@@ -108,6 +121,7 @@ def cadastro(dados: dict, db: Session = Depends(get_db)):
     return {"msg": "Cadastro criado. Verifique seu e-mail para confirmar."}
 
 
+# ---------- CONFIRMAR E-MAIL ----------
 @app.get("/confirmar-email")
 def confirmar_email(token: str, db: Session = Depends(get_db)):
     try:
@@ -121,12 +135,36 @@ def confirmar_email(token: str, db: Session = Depends(get_db)):
         usuario.confirmado = True
         db.commit()
 
-        return {"msg": "E-mail confirmado com sucesso! Você já pode fazer login."}
+        return RedirectResponse(
+            url="http://127.0.0.1:5500/frontend/confirmado.html"
+        )
 
     except JWTError:
         raise HTTPException(status_code=400, detail="Link inválido ou expirado")
 
 
+# ---------- REENVIAR CONFIRMAÇÃO ----------
+@app.post("/reenviar-confirmacao")
+def reenviar_confirmacao(dados: dict, db: Session = Depends(get_db)):
+    email = dados.get("email")
+
+    usuario = db.query(Usuario).filter(Usuario.email == email).first()
+    if not usuario:
+        raise HTTPException(status_code=404, detail="Usuário não encontrado")
+
+    if usuario.confirmado:
+        return {"msg": "Conta já confirmada"}
+
+    token = criar_token(
+        {"email": email},
+        expires_delta=timedelta(hours=24)
+    )
+
+    enviar_email_confirmacao(email, token)
+    return {"msg": "E-mail de confirmação reenviado"}
+
+
+# ---------- LOGIN ----------
 @app.post("/login")
 def login(dados: dict, db: Session = Depends(get_db)):
     email = dados.get("email")
@@ -155,6 +193,44 @@ def login(dados: dict, db: Session = Depends(get_db)):
     return {"access_token": token, "token_type": "bearer"}
 
 
+# ---------- RECUPERAÇÃO DE SENHA ----------
+@app.post("/recuperar-senha")
+def recuperar_senha(dados: dict, db: Session = Depends(get_db)):
+    email = dados.get("email")
+
+    usuario = db.query(Usuario).filter(Usuario.email == email).first()
+    if not usuario:
+        raise HTTPException(status_code=404, detail="Usuário não encontrado")
+
+    token = criar_token(
+        {"email": email},
+        expires_delta=timedelta(hours=1)
+    )
+
+    enviar_email_recuperacao(email, token)
+    return {"msg": "E-mail de recuperação enviado"}
+
+
+@app.post("/nova-senha")
+def nova_senha(token: str, dados: dict, db: Session = Depends(get_db)):
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        email = payload.get("email")
+
+        usuario = db.query(Usuario).filter(Usuario.email == email).first()
+        if not usuario:
+            raise HTTPException(status_code=404, detail="Usuário não encontrado")
+
+        usuario.senha = gerar_hash_senha(dados.get("senha"))
+        db.commit()
+
+        return {"msg": "Senha alterada com sucesso"}
+
+    except JWTError:
+        raise HTTPException(status_code=400, detail="Token inválido ou expirado")
+
+
+# ---------- PDF PROTEGIDO ----------
 @app.get("/pdf/{dia}")
 def baixar_pdf(dia: int, usuario=Depends(verificar_token)):
     if dia > usuario["dia_liberado"]:
@@ -172,24 +248,29 @@ def baixar_pdf(dia: int, usuario=Depends(verificar_token)):
     )
 
 
+# ---------- ADMIN ----------
 @app.get("/admin/alunos")
-def listar_alunos(admin=Depends(verificar_admin), db: Session = Depends(get_db)):
+def listar_alunos(
+    admin=Depends(verificar_admin),
+    db: Session = Depends(get_db)
+):
     alunos = db.query(Usuario).all()
     return [
         {
             "id": u.id,
             "nome": u.nome,
             "email": u.email,
-            "dia_liberado": u.dia_liberado,
-            "confirmado": u.confirmado
+            "confirmado": u.confirmado,
+            "dia_liberado": u.dia_liberado
         }
         for u in alunos
     ]
 
 
+# ---------- CERTIFICADO (GANCHO) ----------
 @app.get("/certificado")
 def certificado(usuario=Depends(verificar_token)):
     if usuario["dia_liberado"] < 30:
         raise HTTPException(status_code=403, detail="Curso não concluído")
 
-    return {"msg": "Certificado pronto para download (rota integrada depois)"}
+    return {"msg": "Certificado liberado (implementação final depois)"}

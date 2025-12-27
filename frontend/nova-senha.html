@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Nova senha</h2>
+
+  <input type="password" id="senha" placeholder="Nova senha">
+  <button onclick="salvar()">Salvar</button>
+
+<script>
+const token = new URLSearchParams(window.location.search).get("token");
+
+function salvar() {
+  fetch(`http://127.0.0.1:8000/nova-senha?token=${token}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ senha: senha.value })
+  })
+  .then(r => r.json())
+  .then(() => alert("Senha alterada com sucesso"));
+}
+</script>
+</body>
+</html>
