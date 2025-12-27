@@ -1,0 +1,91 @@
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: #f4f6f8;
+}
+
+.topo {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px;
+}
+
+/* ===== CARROSSEL ===== */
+.carrossel-section h2 {
+  margin-bottom: 15px;
+}
+
+.carrossel-container {
+  display: flex;
+  align-items: center;
+}
+
+.carrossel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 16px;
+  padding: 10px;
+}
+
+.carrossel::-webkit-scrollbar {
+  display: none;
+}
+
+.dia-card {
+  min-width: 140px;
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,.1);
+  transition: transform .2s;
+}
+
+.dia-card:hover {
+  transform: translateY(-5px);
+}
+
+.dia-card.bloqueado {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.nav {
+  background: #2563eb;
+  border: none;
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* ===== SEPARADOR ===== */
+.separador {
+  height: 50px;
+}
+
+/* ===== VÍDEOS ===== */
+.videos {
+  display: grid;
+  gap: 20px;
+}
+
+.video-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.1);
+}

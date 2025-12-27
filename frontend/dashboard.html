@@ -1,19 +1,49 @@
 <!DOCTYPE html>
-<html>
-<body onload="proteger()">
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard do Aluno</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
 
-  <h2>Dashboard do Aluno</h2>
-  <p>Escolha uma aula:</p>
+<body onload="verificarLogin()">
 
-  <ul>
-    <li><a href="aulas/aula01.html">Aula 01 – Introdução</a></li>
-    <li><a href="aulas/aula02.html">Aula 02 – Instalação</a></li>
-    <li><a href="aulas/aula03.html">Aula 03 – Primeiro Código</a></li>
-  </ul>
-
-  <br>
+<header class="topo">
+  <h1>Python em 30 Dias</h1>
   <button onclick="logout()">Sair</button>
+</header>
 
-  <script src="script.js"></script>
+<main>
+
+  <!-- CARROSSEL DOS DIAS -->
+  <section class="carrossel-section">
+    <h2>📅 Dias do Curso</h2>
+
+    <div class="carrossel-container">
+      <button class="nav" onclick="scrollDias(-1)">◀</button>
+
+      <div class="carrossel" id="diasCarrossel">
+        <!-- Dias gerados pelo JS -->
+      </div>
+
+      <button class="nav" onclick="scrollDias(1)">▶</button>
+    </div>
+  </section>
+
+  <!-- ESPAÇO VISUAL -->
+  <div class="separador"></div>
+
+  <!-- VÍDEOS -->
+  <section class="videos-section">
+    <h2>🎥 Vídeos da Aula</h2>
+
+    <div class="videos" id="videosContainer">
+      <p>Selecione um dia para ver os vídeos.</p>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/dashboard.js"></script>
 </body>
 </html>
