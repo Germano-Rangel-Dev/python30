@@ -1,0 +1,27 @@
+body {
+  background: #020617;
+  color: white;
+  font-family: Arial, sans-serif;
+  padding: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #0f172a;
+}
+
+th, td {
+  padding: 15px;
+  border-bottom: 1px solid #1e293b;
+  text-align: center;
+}
+
+button {
+  padding: 8px 14px;
+  background: #2563eb;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}

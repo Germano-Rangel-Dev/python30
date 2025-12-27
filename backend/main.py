@@ -166,3 +166,38 @@ def baixar_pdf(dia: int, usuario=Depends(verificar_token)):
 @app.get("/admin/alunos")
 def admin_alunos(admin=Depends(verificar_admin), db: Session = Depends(get_db)):
     return db.query(Usuario).all()
+
+@app.get("/progresso")
+def progresso(usuario_id: int = 1):
+    # exemplo simples (depois vem do banco)
+    return {
+        "dias_liberados": 5,
+        "total_dias": 30
+    }
+
+# --- ADMIN ---
+
+from fastapi import Depends, HTTPException
+
+# simulação de verificação admin
+def verificar_admin(token: str = ""):
+    if token != "admin123":
+        raise HTTPException(status_code=403, detail="Acesso negado")
+
+@app.get("/admin/alunos")
+def listar_alunos(token: str = "admin123"):
+    verificar_admin(token)
+    return [
+        {"id": 1, "nome": "Aluno Teste", "dias_liberados": 5},
+        {"id": 2, "nome": "Outro Aluno", "dias_liberados": 10}
+    ]
+
+@app.post("/admin/liberar-dia")
+def liberar_dia(usuario_id: int, dias: int, token: str = "admin123"):
+    verificar_admin(token)
+    return {
+        "status": "ok",
+        "usuario_id": usuario_id,
+        "dias_liberados": dias
+    }
+
