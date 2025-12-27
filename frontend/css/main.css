@@ -1,0 +1,23 @@
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #020617;
+  color: white;
+}
+
+.dashboard {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.dashboard .card {
+  background: #0f172a;
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  flex: 1;
+  text-align: center;
+}

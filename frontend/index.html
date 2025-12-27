@@ -5,6 +5,13 @@
   <title>Python em 30 Dias | Curso Completo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <script>
+  if (!localStorage.getItem("token")) {
+    window.location.href = "login.html";
+  }
+</script>
+
+
   <style>
     body {
       margin: 0;
@@ -124,6 +131,58 @@
     <a href="cadastro.html" class="sec">Criar Conta</a>
   </div>
 </header>
+
+<body>
+
+<header class="topo">
+  <h1>📘 Python em 30 Dias</h1>
+  <button onclick="logout()">Sair</button>
+</header>
+
+<!-- DASHBOARD -->
+<section class="dashboard">
+  <div class="card">
+    <h3>📅 Progresso</h3>
+    <p><strong>3</strong> / 30 dias concluídos</p>
+  </div>
+
+  <div class="card">
+    <h3>📄 PDFs</h3>
+    <p>Disponíveis conforme cronograma</p>
+  </div>
+
+  <div class="card">
+    <h3>🎓 Certificado</h3>
+    <p>Bloqueado</p>
+  </div>
+</section>
+
+<!-- CARROSSEL DAS AULAS -->
+<section class="aulas">
+  <h2>Aulas</h2>
+
+  <div class="carousel">
+    <button class="nav" onclick="voltar()">‹</button>
+
+    <div class="slides" id="slides">
+      <!-- aulas geradas pelo JS -->
+    </div>
+
+    <button class="nav" onclick="avancar()">›</button>
+  </div>
+</section>
+
+<!-- VÍDEOS -->
+<section class="videos">
+  <h2>Vídeos da Aula</h2>
+  <div class="video-box">
+    <p>Selecione uma aula para assistir</p>
+  </div>
+</section>
+
+<script src="js/main.js"></script>
+</body>
+
 
 <section>
   <h2>📅 Estrutura do Curso</h2>

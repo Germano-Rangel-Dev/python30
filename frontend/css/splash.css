@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #0f172a, #020617);
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.splash {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash img {
+  width: 140px;
+  margin-bottom: 20px;
+}
