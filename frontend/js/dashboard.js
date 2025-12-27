@@ -1,5 +1,12 @@
 const TOTAL_DIAS = 30;
 const DIA_LIBERADO = 5; // depois vem do backend
+const VIDEO_THUMB = "https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg";
+
+function initDashboard() {
+  verificarLogin();
+  gerarDias();
+  atualizarProgresso();
+}
 
 function verificarLogin() {
   if (!localStorage.getItem("token")) {
@@ -12,6 +19,15 @@ function logout() {
   window.location.href = "login.html";
 }
 
+/* ===== PROGRESSO ===== */
+function atualizarProgresso() {
+  const porcentagem = Math.round((DIA_LIBERADO / TOTAL_DIAS) * 100);
+  document.getElementById("barraProgresso").style.width = porcentagem + "%";
+  document.getElementById("progressoTexto").innerText =
+    `Progresso: ${porcentagem}%`;
+}
+
+/* ===== DIAS ===== */
 function gerarDias() {
   const carrossel = document.getElementById("diasCarrossel");
 
@@ -23,30 +39,40 @@ function gerarDias() {
     if (i > DIA_LIBERADO) {
       card.classList.add("bloqueado");
     } else {
-      card.onclick = () => carregarVideos(i);
+      card.onclick = () => selecionarDia(i);
     }
 
     carrossel.appendChild(card);
   }
 }
 
+function scrollDias(dir) {
+  document.getElementById("diasCarrossel").scrollLeft += dir * 300;
+}
+
+/* ===== SELEÇÃO ===== */
+function selecionarDia(dia) {
+  carregarVideos(dia);
+  carregarPDF(dia);
+}
+
+/* ===== VÍDEOS ===== */
 function carregarVideos(dia) {
   const container = document.getElementById("videosContainer");
-
   container.innerHTML = `
     <div class="video-card">
-      <h3>Aula ${dia} – Parte 1</h3>
-      <iframe width="100%" height="315"
-        src="https://www.youtube.com/embed/VIDEO_ID"
-        frameborder="0" allowfullscreen>
-      </iframe>
+      <h3>Aula ${dia} – Introdução</h3>
+      <img src="${VIDEO_THUMB}" width="100%" style="border-radius:8px">
     </div>
   `;
 }
 
-function scrollDias(direcao) {
-  const carrossel = document.getElementById("diasCarrossel");
-  carrossel.scrollLeft += direcao * 300;
+/* ===== PDF ===== */
+function carregarPDF(dia) {
+  const pdf = document.getElementById("pdfContainer");
+  pdf.innerHTML = `
+    <a href="pdfs/aula${String(dia).padStart(2,'0')}.pdf" download>
+      📥 Baixar PDF da Aula ${dia}
+    </a>
+  `;
 }
-
-gerarDias();

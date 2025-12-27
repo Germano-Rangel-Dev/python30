@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Dashboard do Aluno</title>
-  <link rel="stylesheet" href="css/dashboard.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/dashboard.css" />
 </head>
 
-<body onload="verificarLogin()">
+<body onload="initDashboard()">
 
 <header class="topo">
   <h1>Python em 30 Dias</h1>
-  <button onclick="logout()">Sair</button>
+  <div class="topo-right">
+    <span id="progressoTexto">Progresso: 0%</span>
+    <button onclick="logout()">Sair</button>
+  </div>
 </header>
 
 <main>
+
+  <!-- PROGRESSO -->
+  <section class="progresso-section">
+    <div class="barra">
+      <div class="barra-preenchida" id="barraProgresso"></div>
+    </div>
+  </section>
 
   <!-- CARROSSEL DOS DIAS -->
   <section class="carrossel-section">
@@ -22,23 +33,27 @@
     <div class="carrossel-container">
       <button class="nav" onclick="scrollDias(-1)">◀</button>
 
-      <div class="carrossel" id="diasCarrossel">
-        <!-- Dias gerados pelo JS -->
-      </div>
+      <div class="carrossel" id="diasCarrossel"></div>
 
       <button class="nav" onclick="scrollDias(1)">▶</button>
     </div>
   </section>
 
-  <!-- ESPAÇO VISUAL -->
   <div class="separador"></div>
 
   <!-- VÍDEOS -->
   <section class="videos-section">
     <h2>🎥 Vídeos da Aula</h2>
-
     <div class="videos" id="videosContainer">
       <p>Selecione um dia para ver os vídeos.</p>
+    </div>
+  </section>
+
+  <!-- PDF -->
+  <section class="pdf-section">
+    <h2>📘 Material da Aula</h2>
+    <div id="pdfContainer">
+      <p>Selecione um dia para baixar o PDF.</p>
     </div>
   </section>
 

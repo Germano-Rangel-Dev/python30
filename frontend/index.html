@@ -1,7 +1,177 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Python em 30 Dias | Curso Completo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      color: #0f172a;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .cta {
+      margin-top: 30px;
+    }
+
+    .cta a {
+      display: inline-block;
+      margin: 10px;
+      padding: 14px 24px;
+      background: #22c55e;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .cta a.sec {
+      background: #2563eb;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    /* MOCK CARROSSEL */
+    .mock-carrossel {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+
+    .mock-dia {
+      min-width: 140px;
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,.1);
+      opacity: .7;
+    }
+
+    /* VÍDEOS MOCK */
+    .videos-mock {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .video-mock {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,.1);
+    }
+
+    .video-thumb {
+      width: 100%;
+      height: 160px;
+      background: linear-gradient(135deg, #cbd5f5, #93c5fd);
+      border-radius: 8px;
+    }
+
+    footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
 <body>
+
+<header>
   <h1>Python em 30 Dias</h1>
-  <a href="login.html">Entrar</a>
+  <p>
+    Um curso completo, prático e progressivo para você sair do zero
+    e construir aplicações reais com Python, Web, Banco de Dados e APIs.
+  </p>
+
+  <div class="cta">
+    <a href="login.html">Entrar</a>
+    <a href="cadastro.html" class="sec">Criar Conta</a>
+  </div>
+</header>
+
+<section>
+  <h2>📅 Estrutura do Curso</h2>
+
+  <div class="mock-carrossel">
+    <div class="mock-dia">Dia 01</div>
+    <div class="mock-dia">Dia 02</div>
+    <div class="mock-dia">Dia 03</div>
+    <div class="mock-dia">Dia 04</div>
+    <div class="mock-dia">Dia 05</div>
+    <div class="mock-dia">...</div>
+    <div class="mock-dia">Dia 30</div>
+  </div>
+</section>
+
+<section>
+  <h2>🎥 Aulas em Vídeo</h2>
+
+  <div class="videos-mock">
+    <div class="video-mock">
+      <div class="video-thumb"></div>
+      <p>Aula prática e objetiva</p>
+    </div>
+
+    <div class="video-mock">
+      <div class="video-thumb"></div>
+      <p>Projetos reais</p>
+    </div>
+
+    <div class="video-mock">
+      <div class="video-thumb"></div>
+      <p>Conteúdo profissional</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>🚀 O que você vai aprender</h2>
+  <p style="max-width:800px;margin:auto;text-align:center;">
+    Python do zero, lógica de programação, orientação a objetos, banco de dados,
+    APIs, autenticação, frontend, testes, deploy e um projeto final completo.
+  </p>
+</section>
+
+<footer>
+  © 2025 • Curso Python em 30 Dias • Conteúdo protegido por login <br> 
+    • Criado por Germano Rangel Troian - desenvolvedor de sistemas e sites
+</footer>
+
 </body>
 </html>
