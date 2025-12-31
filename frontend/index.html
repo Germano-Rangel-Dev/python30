@@ -11,21 +11,19 @@
 
   <!-- TOPO -->
   <header class="topo-app">
+    <!-- botão só funciona no mobile -->
     <button class="btn-menu" onclick="toggleSidebar()">☰</button>
+
     <h1>Python em 30 Dias</h1>
+
     <button class="btn-sair" onclick="logout()">Sair</button>
   </header>
 
-  <!-- LAYOUT -->
+  <!-- LAYOUT PRINCIPAL -->
   <div class="layout">
 
     <!-- SIDEBAR -->
-    <aside 
-      class="sidebar" 
-      id="sidebar"
-      onmouseleave="fecharSidebarDesktop()"
-    >
-
+    <aside class="sidebar" id="sidebar">
       <div class="card">
         <h3>Status</h3>
         <p>Logado com sucesso</p>
@@ -43,10 +41,9 @@
         <h3>Sessão</h3>
         <code id="token"></code>
       </div>
-
     </aside>
 
-    <!-- CONTEÚDO -->
+    <!-- CONTEÚDO CENTRAL -->
     <main class="conteudo">
       <h2>Suas Aulas</h2>
 
@@ -54,12 +51,37 @@
         <button class="carousel-btn" onclick="scrollAulas(-1)">‹</button>
 
         <div class="carousel" id="carouselAulas">
-          <!-- Exemplo -->
+          <!-- 30 aulas -->
           <div class="card aula" data-aula="1">Aula 01</div>
           <div class="card aula" data-aula="2">Aula 02</div>
           <div class="card aula" data-aula="3">Aula 03</div>
           <div class="card aula" data-aula="4">Aula 04</div>
           <div class="card aula" data-aula="5">Aula 05</div>
+          <div class="card aula" data-aula="6">Aula 06</div>
+          <div class="card aula" data-aula="7">Aula 07</div>
+          <div class="card aula" data-aula="8">Aula 08</div>
+          <div class="card aula" data-aula="9">Aula 09</div>
+          <div class="card aula" data-aula="10">Aula 10</div>
+          <div class="card aula" data-aula="11">Aula 11</div>
+          <div class="card aula" data-aula="12">Aula 12</div>
+          <div class="card aula" data-aula="13">Aula 13</div>
+          <div class="card aula" data-aula="14">Aula 14</div>
+          <div class="card aula" data-aula="15">Aula 15</div>
+          <div class="card aula" data-aula="16">Aula 16</div>
+          <div class="card aula" data-aula="17">Aula 17</div>
+          <div class="card aula" data-aula="18">Aula 18</div>
+          <div class="card aula" data-aula="19">Aula 19</div>
+          <div class="card aula" data-aula="20">Aula 20</div>
+          <div class="card aula" data-aula="21">Aula 21</div>
+          <div class="card aula" data-aula="22">Aula 22</div>
+          <div class="card aula" data-aula="23">Aula 23</div>
+          <div class="card aula" data-aula="24">Aula 24</div>
+          <div class="card aula" data-aula="25">Aula 25</div>
+          <div class="card aula" data-aula="26">Aula 26</div>
+          <div class="card aula" data-aula="27">Aula 27</div>
+          <div class="card aula" data-aula="28">Aula 28</div>
+          <div class="card aula" data-aula="29">Aula 29</div>
+          <div class="card aula" data-aula="30">Aula 30</div>
         </div>
 
         <button class="carousel-btn" onclick="scrollAulas(1)">›</button>
@@ -68,6 +90,7 @@
 
   </div>
 
+  <!-- JS -->
   <script src="js/app.js"></script>
   <script>
     carregarDashboard();
