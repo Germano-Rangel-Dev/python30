@@ -1,11 +1,11 @@
 import { auth, db } from "./firebase.js";
-import { signInWithEmailAndPassword } from
+import { createUserWithEmailAndPassword } from
   "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-import { doc, getDoc } from
+import { doc, setDoc } from
   "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-window.login = async function () {
+window.cadastrar = async function () {
   const email = document.getElementById("email").value.trim();
   const senha = document.getElementById("senha").value;
 
@@ -15,29 +15,22 @@ window.login = async function () {
   }
 
   try {
-    // Login Firebase
-    const cred = await signInWithEmailAndPassword(auth, email, senha);
+    // 1️⃣ Cria usuário no Auth
+    const cred = await createUserWithEmailAndPassword(auth, email, senha);
     const user = cred.user;
 
-    // Busca perfil no Firestore
-    const ref = doc(db, "usuarios", user.uid);
-    const snap = await getDoc(ref);
+    // 2️⃣ Cria perfil no Firestore
+    await setDoc(doc(db, "usuarios", user.uid), {
+      email: email,
+      role: "aluno",        // 👈 automático
+      ultimaAula: 0,
+      criadoEm: new Date()
+    });
 
-    if (!snap.exists()) {
-      alert("Usuário sem perfil no sistema.");
-      return;
-    }
-
-    const dados = snap.data();
-
-    // Redirecionamento por role
-    if (dados.role === "admin") {
-      window.location.href = "admin.html";
-    } else {
-      window.location.href = "index.html";
-    }
+    alert("Conta criada com sucesso!");
+    window.location.href = "login.html";
 
   } catch (err) {
-    alert("Erro no login: " + err.message);
+    alert("Erro no cadastro: " + err.message);
   }
 };

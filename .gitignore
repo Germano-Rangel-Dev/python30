@@ -10,3 +10,4 @@ firebase_key.json
 # Sistema
 .DS_Store
 Thumbs.db
+firebase_key
