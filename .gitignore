@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+.env
+
+# Backend
+venv/
+firebase_key.json
+
+# Sistema
+.DS_Store
+Thumbs.db
