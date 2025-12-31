@@ -157,3 +157,29 @@ document.addEventListener("DOMContentLoaded", () => {
   carregarDashboard();
   carregarProgresso();
 });
+
+/* ===============================
+   PROGRESSO FIREBASE
+================================ */
+
+import { carregarProgresso, concluirAula } from "./progresso.js";
+
+document.querySelectorAll(".aula").forEach(card => {
+  card.addEventListener("click", () => {
+    if (card.classList.contains("bloqueada")) {
+      alert("Conclua a aula anterior para desbloquear.");
+      return;
+    }
+
+    const numero = parseInt(card.dataset.aula);
+
+    // aqui futuramente abre a página da aula
+    alert("Abrindo Aula " + numero);
+
+    // simula conclusão
+    concluirAula(numero);
+  });
+});
+
+// chama ao carregar
+window.addEventListener("load", carregarProgresso);
