@@ -3,38 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <title>Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
-
 </head>
+
 <body onload="protegerPagina()">
-  <div class="container">
-    <div class="grid">
+
+  <!-- TOPO -->
+  <header class="topo-app">
+    <button class="btn-menu" onclick="toggleSidebar()">☰</button>
+    <h1>Python em 30 Dias</h1>
+    <button class="btn-sair" onclick="logout()">Sair</button>
+  </header>
+
+  <!-- LAYOUT -->
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside 
+      class="sidebar" 
+      id="sidebar"
+      onmouseleave="fecharSidebarDesktop()"
+    >
 
       <div class="card">
-        <h2>Status</h2>
-        <p>Você está logado com sucesso.</p>
+        <h3>Status</h3>
+        <p>Logado com sucesso</p>
       </div>
 
       <div class="card">
-        <h2>Sessão</h2>
+        <h3>Progresso</h3>
+        <div class="progress-container">
+          <div id="barraProgresso" class="progress-bar"></div>
+        </div>
+        <p id="textoProgresso">0%</p>
+      </div>
+
+      <div class="card">
+        <h3>Sessão</h3>
         <code id="token"></code>
       </div>
 
-      <div class="card">
-        <h2>Próxima Aula</h2>
-        <p>Aula 01 — Introdução ao Python</p>
-        <button class="btn-primary">Acessar Aula</button>
-      </div>
+    </aside>
 
-      <div class="card">
-        <button class="btn-danger" onclick="logout()">Sair</button>
-      </div>
+    <!-- CONTEÚDO -->
+    <main class="conteudo">
+      <h2>Suas Aulas</h2>
 
-    </div>
+      <div class="carousel-container">
+        <button class="carousel-btn" onclick="scrollAulas(-1)">‹</button>
+
+        <div class="carousel" id="carouselAulas">
+          <!-- Exemplo -->
+          <div class="card aula" data-aula="1">Aula 01</div>
+          <div class="card aula" data-aula="2">Aula 02</div>
+          <div class="card aula" data-aula="3">Aula 03</div>
+          <div class="card aula" data-aula="4">Aula 04</div>
+          <div class="card aula" data-aula="5">Aula 05</div>
+        </div>
+
+        <button class="carousel-btn" onclick="scrollAulas(1)">›</button>
+      </div>
+    </main>
+
   </div>
 
   <script src="js/app.js"></script>
-  <script>carregarDashboard()</script>
-</body>
+  <script>
+    carregarDashboard();
+    carregarProgresso();
+  </script>
 
+</body>
 </html>
